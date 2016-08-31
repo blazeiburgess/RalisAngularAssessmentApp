@@ -1,0 +1,18 @@
+.navbar-list {
+  height: auto;
+  padding: 1em 0;
+}
+
+.navbar-list li {
+  display: inline;
+  padding: 2em;
+}
+
+.navbar-list li:hover {
+  background-color: lightgray;
+  text-decoration: underline;
+}
+
+.navbar-list a {
+  text-decoration: none;
+}
