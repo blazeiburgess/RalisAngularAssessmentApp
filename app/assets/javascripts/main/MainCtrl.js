@@ -1,5 +1,5 @@
 function MainCtrl () {
-
+  this.test = "This is changed test text"
 }
 
 angular
