@@ -1,0 +1,2 @@
+class GeneralLink < ApplicationRecord
+end
