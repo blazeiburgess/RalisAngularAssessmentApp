@@ -1,7 +1,8 @@
-function MainCtrl () {
-  this.test = "This is changed test text"
+function MainCtrl ($http) {
+  this.test = "This is changed test text";
+  this.posts = $http.get('/entities')
 }
 
 angular
   .module('app')
-  .controller('MainCtrl', MainCtrl)
+  .controller('MainCtrl', ['$http', MainCtrl])

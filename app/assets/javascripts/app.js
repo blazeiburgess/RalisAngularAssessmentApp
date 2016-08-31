@@ -1,8 +1,8 @@
 angular
   .module('app', ['ui.router', 'templates'])
-  .service('entitiesService', function ($http) {
+  .service('entitiesService', ['$http', function ($http) {
     return $http.get('/entities');
-  })
+  }])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
