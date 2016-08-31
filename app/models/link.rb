@@ -4,7 +4,7 @@ class Link < ApplicationRecord
 
   def check_archive_link
     unless !!self.archive
-      self.archive = "https://archive.is/?url=" + self.href
+      self.archive = "https://archive.is/" + self.href
     end
   end
 end
