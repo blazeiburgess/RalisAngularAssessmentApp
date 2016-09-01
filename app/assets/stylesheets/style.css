@@ -34,6 +34,10 @@ ul#tabs{
   padding: 0;
   z-index: 10;
 }
+
+li {
+  list-style-type: none;
+}
 #tabs li{
   float: left;
   list-style-type: none;

@@ -2,19 +2,23 @@
 <div align="center">{{ ctrl.entity.description }}</div><hr>
 <div class="dynamic-tab-container">
   <ul id="tabs">
+    <li><a href="#main" tab-dynamic ng-class="{'current':$first}">Main</a></li>
     <li ng-repeat="section in ctrl.entity.sections">
       <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
     </li>
   </ul>
   <div class="tab-content-wrapper">
+    <div class="tab-content" id="#main" ng-class="{'active':$first}">
+    </div>
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
       <div align="center">
 	<p>{{section.description}}</p>
       </div>
       <hr>
       <li ng-repeat="subsection in section.subsections">
-	<p><strong>{{ subsection.name }}</strong></p>
-	<p>{{ subsection.description }}</p>
+	<div align="center"><h5>{{ subsection.name }}</h5>
+	  <p>{{ subsection.description }}</p>
+	</div>
 	<div class="row" ng-if="subsection.links.length > 0">
 	  <div class="four columns title">
 	    Links:
