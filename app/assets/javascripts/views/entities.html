@@ -11,7 +11,7 @@
     <div class="tab-content" id="#main" ng-class="{'active':$first}">
     </div>
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
-      <div align="center">
+      <div align="center" ng-if="section.description.length > 0">
 	<p>{{section.description}}</p>
       </div>
       <hr>
@@ -25,8 +25,8 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="link in subsection.links">
-	      <a href="{{link.href}}" target="_blank">{{link.title}}</a>
-	      <br>{{ link.description }}<br>
+	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
+	      <br>{{ link.description }}<br ng-if="link.description.length > 0">
 	      <a href="{{link.archive}}" target="_blank">cached</a>
 	      <hr>
 	    </div>
@@ -38,7 +38,7 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes">
-	      <span class="note-title">{{note.title}}</span><br>
+	      <span class="note-title">{{note.title}}</span> <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
 	      {{note.body}}<hr>
 	    </div>
 	  </div>
