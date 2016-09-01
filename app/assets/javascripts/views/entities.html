@@ -1,5 +1,5 @@
-<h5 align="center">{{ ctrl.entity.name }}</h5>
-<div align="center">{{ ctrl.entity.description }}</div>
+<h4 align="center">{{ ctrl.entity.name }}</h4>
+<div align="center">{{ ctrl.entity.description }}</div><hr>
 <div class="dynamic-tab-container">
   <ul id="tabs">
     <li ng-repeat="section in ctrl.entity.sections">
@@ -15,7 +15,7 @@
       <li ng-repeat="subsection in section.subsections">
 	<p><strong>{{ subsection.name }}</strong></p>
 	<p>{{ subsection.description }}</p>
-	<div class="row">
+	<div class="row" ng-if="subsection.links.length > 0">
 	  <div class="four columns title">
 	    Links:
 	  </div>
@@ -28,7 +28,7 @@
 	    </div>
 	  </div>
 	</div>
-	<div class="row">
+	<div class="row" ng-if="subsection.notes.length > 0">
 	  <div class="four columns title">
 	    Notes:
 	  </div>
