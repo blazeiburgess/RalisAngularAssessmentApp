@@ -15,7 +15,7 @@ angular
       .state('entities', {
 	url: '/entities/:id',
 	templateUrl: 'views/entities.html',
-	controller: 'MainCtrl as main',
+	controller: 'EntityCtrl as entity',
 	resolve: { 
 	  entity: function (MainService, $stateParams) {
 	    debugger;
