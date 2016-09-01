@@ -1,18 +1,27 @@
 angular
   .module('app', ['ui.router', 'templates'])
-  .service('entitiesService', ['$http', function ($http) {
-    return $http.get('/entities');
-  }])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
 	url: '/home',
-	templateUrl: 'main/_home.html',
+	templateUrl: 'views/home.html',
 	controller: 'MainCtrl as main',
-	// resolve: function (entitiesService) {
-	//   debugger;
-	//   entitiesService();
-	// }
+	resolve: {
+	  entities: function (MainService) {
+	    return MainService.getEntities().then(function (resp) {console.log(resp); return resp.data});
+	  }
+	}
       })
+      .state('entities', {
+	url: '/entities/:id',
+	templateUrl: 'views/entities.html',
+	controller: 'MainCtrl as main',
+	resolve: { 
+	  entity: function (MainService, $stateParams) {
+	    debugger;
+	    return MainService.getEntity($stateParams.id).then(function (resp) { console.log(resp); return resp.data })
+	  }
+	}
+      });
     $urlRouterProvider.otherwise('home')
   }])
