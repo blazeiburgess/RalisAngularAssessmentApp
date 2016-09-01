@@ -58,7 +58,7 @@ li {
 }
 
 .tab-content{
-  width: 650px;
+  width: 100%;
   border: solid #cccccc 2px;
   padding: 20px 15px;
   /* position: absolute; */

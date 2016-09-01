@@ -1,8 +1,15 @@
-<h3 align="center">This is the home page</h3>
+<h3 align="center">Subjects</h3>
 <div>
-  <p>Test text: {{ main.test }}</p>
   <li ng-repeat="entity in main.entities">
-    <h5><a href="/#/entities/{{ entity.id }}">{{entity.name }}</a></h5> || {{ entity.description }}<br>
-    || <div style="display: inline;" ng-repeat="cat in entity.categories"><small>{{cat.name}}</small> || </div>
+    <div class="row">
+      <div class="three columns" align="center">
+	<h5><a href="/#/entities/{{ entity.id }}">{{entity.name }}</a></h5> 
+      </div>
+      <div class="nine columns">
+	// {{ entity.description }}<br> 
+	|| <div style="display: inline;" ng-repeat="cat in entity.categories"><small>{{cat.name}}</small> || </div>
+      </div>
+    </div>
+    <br>
   </li>
 </div>

@@ -20,8 +20,8 @@
 	  <p>{{ subsection.description }}</p>
 	</div>
 	<div class="row" ng-if="subsection.links.length > 0">
-	  <div class="two columns title">
-	    Links:
+	  <div class="two columns title" align="center">
+	    {{ subsection.name }} Links:
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="link in subsection.links">
@@ -33,8 +33,8 @@
 	  </div>
 	</div>
 	<div class="row" ng-if="subsection.notes.length > 0">
-	  <div class="two columns title">
-	    Notes:
+	  <div class="two columns title" align="center">
+	    {{ subsection.name }} Notes:
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes">

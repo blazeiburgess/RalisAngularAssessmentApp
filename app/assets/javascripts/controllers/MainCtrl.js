@@ -1,7 +1,7 @@
 function MainCtrl (entities) {
   var self = this;
-  var entity = "test";
-  this.test = "This is test text";
+  // var entity = "test";
+
   this.entities = [];
 
   angular.forEach(entities, function(entitiesResp) {
