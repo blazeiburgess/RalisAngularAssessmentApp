@@ -16,3 +16,59 @@
 .navbar-list a {
   text-decoration: none;
 }
+
+.tab-container, .dynamic-tab-container{
+  margin-bottom: 50px;
+}
+ul#tabs{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+#tabs li{
+  float: left;
+  list-style-type: none;
+  background: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+  margin: 0 0 0 2px;
+}
+#tabs li:first-child{
+  margin: 0; 
+}
+#tabs li a{
+  padding: 15px 20px;
+  text-decoration: none;
+  border: solid #cccccc 2px;
+  color: #444444;
+  border-radius:2px;
+  font-weight: bold;
+  display: block
+}
+
+.tab-content{
+  width: 650px;
+  border: solid #cccccc 2px;
+  padding: 20px 15px;
+  /* position: absolute; */
+  min-height: 150px;
+  margin-top: -2px;
+  display: none;
+}
+.tab-content.active{
+  display: block;
+}
+#tabs li a.current{
+  border-bottom-color: #FFFFFF;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.title {
+  font-style: oblique;
+  font-weight: bold
+}
+
+.note-title {
+  font-style: italic;
+  opacity: .6;
+}

@@ -1,3 +1,45 @@
-<h3 align="center">Entities</h3>
-<p>{{ main.entity }}</p>
-{{ main }}
+<h5 align="center">{{ ctrl.entity.name }}</h5>
+<div align="center">{{ ctrl.entity.description }}</div>
+<div class="dynamic-tab-container">
+  <ul id="tabs">
+    <li ng-repeat="section in ctrl.entity.sections">
+      <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
+    </li>
+  </ul>
+  <div class="tab-content-wrapper">
+    <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
+      <div align="center">
+	<p>{{section.description}}</p>
+      </div>
+      <hr>
+      <li ng-repeat="subsection in section.subsections">
+	<p><strong>{{ subsection.name }}</strong></p>
+	<p>{{ subsection.description }}</p>
+	<div class="row">
+	  <div class="four columns title">
+	    Links:
+	  </div>
+	  <div class="eight columns">
+	    <div ng-repeat="link in subsection.links">
+	      <a href="{{link.href}}" target="_blank">{{link.title}}</a>
+	      <br>{{ link.description }}<br>
+	      <a href="{{link.archive}}" target="_blank">cached</a>
+	      <hr>
+	    </div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="four columns title">
+	    Notes:
+	  </div>
+	  <div class="eight columns">
+	    <div ng-repeat="note in subsection.notes">
+	      <span class="note-title">{{note.title}}</span><br>
+	      {{note.body}}<hr>
+	    </div>
+	  </div>
+	<hr>
+      </li>
+    </div>
+  </div>
+</div></p></h2></div></div></a></li></ul></div>
