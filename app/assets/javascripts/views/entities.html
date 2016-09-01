@@ -20,10 +20,10 @@
 	  <p>{{ subsection.description }}</p>
 	</div>
 	<div class="row" ng-if="subsection.links.length > 0">
-	  <div class="four columns title">
+	  <div class="two columns title">
 	    Links:
 	  </div>
-	  <div class="eight columns">
+	  <div class="ten columns">
 	    <div ng-repeat="link in subsection.links">
 	      <a href="{{link.href}}" target="_blank">{{link.title}}</a>
 	      <br>{{ link.description }}<br>
@@ -33,10 +33,10 @@
 	  </div>
 	</div>
 	<div class="row" ng-if="subsection.notes.length > 0">
-	  <div class="four columns title">
+	  <div class="two columns title">
 	    Notes:
 	  </div>
-	  <div class="eight columns">
+	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes">
 	      <span class="note-title">{{note.title}}</span><br>
 	      {{note.body}}<hr>
