@@ -37,10 +37,10 @@ angular
       controller: 'EntityCtrl as ctrl',
       resolve: { 
 	entity: function (MainService, $stateParams) {
-	  // debugger;
 	  return MainService.getEntity($stateParams.id).then(function (resp) { console.log(resp); return resp.data })
 	}
       }
-    });
+    })
+    
     $urlRouterProvider.otherwise('home')
   }])

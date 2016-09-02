@@ -2,13 +2,43 @@
 <div align="center">{{ ctrl.entity.description }}</div><hr>
 <div class="dynamic-tab-container">
   <ul id="tabs">
-    <li><a href="#main" tab-dynamic ng-class="{'current':$first}">Main</a></li>
+    <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>
     <li ng-repeat="section in ctrl.entity.sections">
       <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
     </li>
   </ul>
   <div class="tab-content-wrapper">
-    <div class="tab-content" id="#main" ng-class="{'active':$first}">
+    <div class="tab-content ng-scope" id="0" ng-class="{'active':$first}">
+      <div align="center"><h5>General Notes</h5></div>
+      <div ng-repeat="gn in ctrl.entity.generalNotes">
+      <div class="row">
+	<div class="two columns">
+	  <strong>General Notes:</strong>
+	</div>
+	  <div class="ten columns">
+	    {{ gn.title }}<br>
+	    <span style="opacity: 0.4;">{{ gn.created_at }}</span><br>
+	    {{ gn.body }}
+	    <hr>
+	  </div>
+	</div>
+      </div>      
+      <hr>
+    <div align="center"><h5>General Links</h5></div>
+     
+	<div class="row">
+	  <div class="two columns">
+	    <strong>General Links:</strong>
+	  </div>
+	  <div class="ten columns">
+	    <div ng-repeat="gl in ctrl.entity.generalLinks">
+	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
+	    {{ gl.description }}<br ng-if="gl.description.length > 0">
+	    <a href="{{ gl.archive }}" target="_blank">cached</a>
+	    <hr>
+	    </div>
+	  </div>
+      </div>
     </div>
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
       <div align="center" ng-if="section.description.length > 0">
