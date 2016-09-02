@@ -7,4 +7,8 @@ class GeneralLink < ApplicationRecord
       self.archive = "https://archive.is/" + self.href
     end
   end
+
+  def created_at
+    super.strftime("%b %d, %Y, %l:%M%P")
+  end
 end
