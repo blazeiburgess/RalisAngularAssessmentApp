@@ -11,10 +11,10 @@
     <div class="tab-content ng-scope" id="0" ng-class="{'active':$first}">
       <div align="center"><h5>General Notes</h5></div>
       <div ng-repeat="gn in ctrl.entity.generalNotes">
-      <div class="row">
-	<div class="two columns">
-	  <strong>General Notes:</strong>
-	</div>
+	<div class="row">
+	  <div class="two columns">
+	    <strong>General Notes:</strong>
+	  </div>
 	  <div class="ten columns">
 	    {{ gn.title }}<br>
 	    <span style="opacity: 0.4;">{{ gn.created_at }}</span><br>
@@ -24,20 +24,20 @@
 	</div>
       </div>      
       <hr>
-    <div align="center"><h5>General Links</h5></div>
-     
-	<div class="row">
-	  <div class="two columns">
-	    <strong>General Links:</strong>
-	  </div>
-	  <div class="ten columns">
-	    <div ng-repeat="gl in ctrl.entity.generalLinks">
+      <div align="center"><h5>General Links</h5></div>
+
+      <div class="row">
+	<div class="two columns">
+	  <strong>General Links:</strong>
+	</div>
+	<div class="ten columns">
+	  <div ng-repeat="gl in ctrl.entity.generalLinks">
 	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
 	    {{ gl.description }}<br ng-if="gl.description.length > 0">
 	    <a href="{{ gl.archive }}" target="_blank">cached</a>
 	    <hr>
-	    </div>
 	  </div>
+	</div>
       </div>
     </div>
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
@@ -72,8 +72,8 @@
 	      {{note.body}}<hr>
 	    </div>
 	  </div>
-	<hr>
+	  <hr>
       </li>
+	</div>
     </div>
-  </div>
-</div></p></h2></div></div></a></li></ul></div>
+  </div></p></h2></div></div></a></li></ul></div>
