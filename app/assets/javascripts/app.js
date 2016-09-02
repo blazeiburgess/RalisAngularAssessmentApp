@@ -53,9 +53,33 @@ angular
       resolve: {
 	entity: function (NewEntityCtrl) {
 	  return {};
-
 	}
       }
     })    
+    .state('category', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('category.index', {
+      url: '/categories',
+      templateUrl: 'views/categories.html',
+      controller: 'CategoryCtrl as ctrl',
+      resolve: {
+	categories: function (CategoryService) {
+	  return CategoryService.getCategories().then(function (resp) {return resp.data});
+	}
+      }
+    })
+    .state('category.show', {
+      url: '/categories/:id',
+      templateUrl: 'views/category.html',
+      controller: 'CategoryShowCtrl as ctrl',
+      resolve: {
+	category: function ($stateParams, CategoryService) {
+	  return CategoryService.getCategory($stateParams.id).then(function (resp) {return resp.data});
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
