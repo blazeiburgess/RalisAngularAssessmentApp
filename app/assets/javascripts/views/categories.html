@@ -1,4 +1,4 @@
 <h3>Categories</h3>
 <li ng-repeat="category in ctrl.categories">
-  <a href="/#/categories/{{ category.id }}">{{ category.name }}</a>
+  <a href="/#/categories/{{ category.id }}">{{ category.name }}</a> <span style="opacity: 0.4;">({{ category.entitiesCount }})</span>
 </li>
