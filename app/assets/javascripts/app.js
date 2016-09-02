@@ -32,6 +32,11 @@ angular
 	}
       })
     .state('entities', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('entities.index', {
       url: '/entities/:id',
       templateUrl: 'views/entities.html',
       controller: 'EntityCtrl as ctrl',
@@ -41,6 +46,16 @@ angular
 	}
       }
     })
-    
+    .state('entities.new', {
+      url: '/entities/new',
+      templateUrl: 'views/entity_form.html',
+      controller: 'NewEntityCtrl as ctrl',
+      resolve: {
+	entity: function (NewEntityCtrl) {
+	  return {};
+
+	}
+      }
+    })    
     $urlRouterProvider.otherwise('home')
   }])
