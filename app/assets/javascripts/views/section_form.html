@@ -2,7 +2,7 @@
   <div ng-messages="SectionForm.name.$error">
     <div class="message-alert" ng-message="required" ng-if="SectionForm.name.$touched" align="center">A name is required for submission</div><br>
   </div>
-<form name="SectionForm" ng-submit="ctrl.postSection(ctrl.data.section)">
+  <form name="SectionForm" ng-submit="ctrl.postSection()">
   <input type="hidden" name="entity_id" ng-model="ctrl.data.section.entity_id" value="{{ctrl.data.section.entity_id}}" />
   <input type="text" name="name" placeholder="Name/Title..." ng-model="ctrl.data.section.name" required="required" /><br>
   <textarea ng-model="ctrl.data.section.description" class="js-untouched">Description...</textarea><br>
