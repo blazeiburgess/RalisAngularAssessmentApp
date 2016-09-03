@@ -89,3 +89,10 @@ li {
   font-style: italic;
   opacity: .6;
 }
+
+.message-alert {
+  background-color: lightsalmon;
+  border-color: red;
+  border: 1px;
+  color: white;
+}

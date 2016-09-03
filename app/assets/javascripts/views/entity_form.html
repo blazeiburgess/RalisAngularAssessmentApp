@@ -1,9 +1,9 @@
 <h3>New Entity</h3>
+  <div ng-messages="EntityForm.name.$error">
+    <div class="message-alert" ng-message="required" ng-if="EntityForm.name.$touched" align="center">A name is required for submission</div><br>
+  </div>
 <form name="EntityForm" ng-submit="ctrl.postEntity(ctrl.data.entity)">
   <input type="text" name="name" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" required="required" /><br>
-  <div ng-messages="EntityForm.name.$error">
-    <div ng-message="required" ng-if="EntityForm.name.$touched">A name is required for submission</div>
-  </div>
   <textarea ng-model="ctrl.data.entity.description" class="js-untouched">Description...</textarea><br>
   <input type="submit" value="submit" ng-disabled="EntityForm.$invalid" />
 </form>
