@@ -6,7 +6,7 @@ function SectionCtrl (section, SectionService, $state) {
     section: {
       name: self.section.name,
       description: self.section.description,
-      entityId: self.section.entityId
+      entity_id: self.section.entity_id
     }
   }
 
