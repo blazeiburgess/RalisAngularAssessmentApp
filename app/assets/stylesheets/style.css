@@ -8,24 +8,26 @@ a:hover {
 
 .navbar-list {
   height: auto;
-  background-color: white;
+  background-color: black;
   padding: 1em 0;
   width: 100%;
   position: fixed;
+  z-index: 1;
 }
 
 .navbar-list li {
-  display: inline;
+  display: inline; 
   padding: 2em;
 }
 
 .navbar-list li:hover {
-  background-color: lightgray;
-  text-decoration: underline;
+  color: lightsalmon;
+  /* text-decoration: underline; */
 }
 
 .navbar-list a {
   text-decoration: none;
+  color: whitesmoke;
 }
 
 .tab-container, .dynamic-tab-container{

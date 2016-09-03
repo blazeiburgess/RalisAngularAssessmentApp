@@ -8,9 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body ng-app="app" class="container">
+  <body ng-app="app">
     <%= render 'layouts/navbar' %>
-    <br><br><br> 
-    <ui-view></ui-view>
+    <div class="container">
+      <br><br><br> 
+      <ui-view></ui-view>
+    </div>
   </body>
 </html>

@@ -1,6 +1,6 @@
 angular
   .module('app', ['ui.router', 'templates'])
-  // directive credit to Anita Salunke:
+  // tab directive credit to Anita Salunke:
   //   http://codepen.io/anita_salunke
   .directive('tabDynamic', function(){
     return{
