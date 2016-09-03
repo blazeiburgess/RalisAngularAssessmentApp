@@ -1,11 +1,14 @@
 <h3>New Entity</h3>
 <form ng-submit="ctrl.postEntity(ctrl.data.entity)">
   <input type="text" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" /><br>
-  <textarea ng-model="ctrl.data.entity.description">Description...</textarea><br>
+  <textarea ng-model="ctrl.data.entity.description" class="js-untouched">Description...</textarea><br>
   <input type="submit" value="submit" />
 </form>
 <script type="text/javascript">
   $(document).ready(function() {
-    $("textarea").focus(function() { $(this).select(); } );
+    $(".js-untouched").focus(function() { 
+      $(this).text('');
+      $(this).removeClass('js-untouched');
+    });
   });
 </script>
