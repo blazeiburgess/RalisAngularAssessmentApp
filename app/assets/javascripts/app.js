@@ -42,7 +42,7 @@ angular
       controller: 'NewEntityCtrl as ctrl',
       resolve: {
 	// entity: function (NewEntityCtrl) {
-	//   return {};
+	//   return;
 	// }
       }
     })    
