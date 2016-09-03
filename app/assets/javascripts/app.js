@@ -97,7 +97,10 @@ angular
       controller: 'SectionCtrl as ctrl',
       resolve: {
 	state: function ($stateParams) {
-	  return $stateParams;
+	  return $stateParams.id;
+	},
+	section: function () {
+	  return {name: "", description: "Description..."};
 	}
       }
     })
