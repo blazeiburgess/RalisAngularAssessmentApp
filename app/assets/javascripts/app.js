@@ -21,11 +21,16 @@ angular
   })
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('entities', {
-      abstract: true,
-      url: '',
-      template: '<div ui-view></div>'
-    })
+      .state('home', {
+	url: '/home',
+	templateUrl: 'views/home.html',
+	controller: 'MainCtrl as main'
+      })
+      .state('entities', {
+	abstract: true,
+	url: '',
+	template: '<div ui-view></div>'
+      })
       .state('entities.index', {
 	url: '/entities',
 	templateUrl: 'views/entities.html',
@@ -81,5 +86,5 @@ angular
 	}
       }
     })
-    $urlRouterProvider.otherwise('entities.index')
+    $urlRouterProvider.otherwise('home')
   }])
