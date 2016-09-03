@@ -1,8 +1,8 @@
 <h3>New Entity</h3>
-<form ng-submit="ctrl.postEntity(ctrl.data.entity)">
-  <input type="text" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" /><br>
+<form name="EntityForm" ng-submit="ctrl.postEntity(ctrl.data.entity)">
+  <input type="text" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" required /><br>
   <textarea ng-model="ctrl.data.entity.description" class="js-untouched">Description...</textarea><br>
-  <input type="submit" value="submit" />
+  <input type="submit" value="submit" ng-disabled="EntityForm.$invalid" />
 </form>
 <script type="text/javascript">
   $(document).ready(function() {

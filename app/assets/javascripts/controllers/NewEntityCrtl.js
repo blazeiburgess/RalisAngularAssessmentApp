@@ -13,6 +13,7 @@ function NewEntityCtrl (entity, MainService, $state) {
     MainService.postEntity(self.data).then(function (resp) {
       $state.go('entities.show',{id: resp.data.id})
     });
+    alert("called");
   }
 
 }
