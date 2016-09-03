@@ -2,7 +2,7 @@
 <div align="center">{{ ctrl.entity.description }}</div><hr>
 <div class="dynamic-tab-container">
   <div align="center">
-    <small><a ui-sref="sections.new">New Section</a></small>
+    <small><a ui-sref="sections.new({id: {{ctrl.entity.id}} })">New Section</a></small>
   </div>
   <ul id="tabs">
     <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>

@@ -86,5 +86,20 @@ angular
 	}
       }
     })
+    .state('sections', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('sections.new', {
+      url: '/entities/:id/sections/new',
+      templateUrl: 'views/section_form.html',
+      controller: 'SectionCtrl as ctrl',
+      resolve: {
+	state: function ($stateParams) {
+	  return $stateParams;
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
