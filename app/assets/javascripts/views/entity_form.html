@@ -4,3 +4,8 @@
   <textarea ng-model="ctrl.entity.description">Description...</textarea><br>
   <input type="submit" />
 </form>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("textarea").focus(function() { $(this).select(); } );
+  });
+</script>
