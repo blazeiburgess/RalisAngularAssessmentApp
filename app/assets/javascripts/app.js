@@ -28,7 +28,7 @@ angular
     })
       .state('entities.index', {
 	url: '/entities',
-	templateUrl: 'views/home.html',
+	templateUrl: 'views/entities.html',
 	controller: 'MainCtrl as main',
 	resolve: {
 	  entities: function (MainService) {
@@ -48,7 +48,7 @@ angular
     })    
     .state('entities.show', {
       url: '/entities/:id',
-      templateUrl: 'views/entities.html',
+      templateUrl: 'views/entity.html',
       controller: 'EntityCtrl as ctrl',
       resolve: { 
 	entity: function (MainService, $stateParams) {

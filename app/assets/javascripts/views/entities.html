@@ -1,80 +1,16 @@
-<h4 align="center">{{ ctrl.entity.name }}</h4>
-<div align="center">{{ ctrl.entity.description }}</div><hr>
-<div class="dynamic-tab-container">
-  <ul id="tabs">
-    <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>
-    <li ng-repeat="section in ctrl.entity.sections">
-      <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
-    </li>
-  </ul>
-  <div class="tab-content-wrapper">
-    <div class="tab-content ng-scope" id="0" ng-class="{'active':$first}">
-      <div align="center" ng-if="ctrl.entity.generalNotes.length > 0"><h5>General Notes</h5></div>
-      <div ng-repeat="gn in ctrl.entity.generalNotes">
-	<div class="row" ng-if="ctrl.entity.generalNotes.length > 0"</div>
-	  <div class="two columns">
-	    <strong>General Notes:</strong>
-	  </div>
-	  <div class="ten columns">
-	    <span class="note-title">{{ gn.title }}</span><br>
-	    <span style="opacity: 0.4;">({{ gn.created_at }})</span><br>
-	    {{ gn.body }}
-	    <hr>
-	  </div>
-	</div>
-	<hr>
-      </div>      
-      
-      <div align="center" ng-if="ctrl.entity.generalLinks.length > 0"><h5>General Links</h5></div>
-
-      <div class="row" ng-if="ctrl.entity.generalLinks.length > 0">
-	<div class="two columns">
-	  <strong>General Links:</strong>
-	</div>
-	<div class="ten columns">
-	  <div ng-repeat="gl in ctrl.entity.generalLinks">
-	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a><br> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
-	    {{ gl.description }}<br ng-if="gl.description.length > 0">
-	    <a href="{{ gl.archive }}" target="_blank">cached</a>
-	    <hr>
-	  </div>
-	</div>
+<h3 align="center">Subjects</h3>
+<div>
+  <li ng-repeat="entity in main.entities">
+    <div class="row">
+      <div class="three columns" align="center">
+	<h5><a href="/#/entities/{{ entity.id }}">{{entity.name }}</a></h5> 
+      </div>
+      <div class="nine columns">
+	// {{ entity.description }}<br> 
+	|| <div style="display: inline;" ng-repeat="cat in entity.categories"><small>{{cat.name}}</small> || </div>
       </div>
     </div>
-    <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
-      <div align="center" ng-if="section.description.length > 0">
-	<p>{{section.description}}</p>
-      </div>
-      <hr>
-      <li ng-repeat="subsection in section.subsections">
-	<div align="center"><h5>{{ subsection.name }}</h5>
-	  <p>{{ subsection.description }}</p>
-	</div>
-	<div class="row" ng-if="subsection.links.length > 0">
-	  <div class="two columns title" align="center">
-	    {{ subsection.name }} Links:
-	  </div>
-	  <div class="ten columns">
-	    <div ng-repeat="link in subsection.links">
-	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
-	      <br>{{ link.description }}<br ng-if="link.description.length > 0">
-	      <a href="{{link.archive}}" target="_blank">cached</a>
-	      <hr>
-	    </div>
-	  </div>
-	</div>
-	<div class="row" ng-if="subsection.notes.length > 0">
-	  <div class="two columns title" align="center">
-	    {{ subsection.name }} Notes:
-	  </div>
-	  <div class="ten columns">
-	    <div ng-repeat="note in subsection.notes">
-	      <span class="note-title">{{note.title}}</span> <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
-	      {{note.body}}<hr>
-	    </div>
-	  </div>
-	  <hr>
-      </li>
-	</div>
-    </div>
-  </div></p></h2></div></div></a></li></ul></div>
+    <br>
+    <hr>
+  </li>
+</div>
