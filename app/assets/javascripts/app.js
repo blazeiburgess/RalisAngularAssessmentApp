@@ -96,11 +96,12 @@ angular
       templateUrl: 'views/section_form.html',
       controller: 'SectionCtrl as ctrl',
       resolve: {
-	state: function ($stateParams) {
-	  return $stateParams.id;
-	},
-	section: function () {
-	  return {name: "", description: "Description..."};
+	section: function ($stateParams) {
+	  return {
+	    name: "", 
+	    description: "Description...", 
+	    entity_id: $stateParams.id
+	  }
 	}
       }
     })

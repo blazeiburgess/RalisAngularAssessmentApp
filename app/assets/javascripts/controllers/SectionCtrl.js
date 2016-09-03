@@ -5,7 +5,8 @@ function SectionCtrl (section, SectionService, $state) {
   this.data = {
     section: {
       name: self.section.name,
-      description: self.section.description
+      description: self.section.description,
+      entityId: self.section.entityId
     }
   }
 
