@@ -1,14 +1,22 @@
 <h4 align="center">{{ ctrl.entity.name }}</h4>
 <div align="center">{{ ctrl.entity.description }}</div><hr>
 <div class="dynamic-tab-container">
+  <div align="center">
+    <small><a ui-sref="sections.new">New Section</a></small>
+  </div>
   <ul id="tabs">
     <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>
-    <li ng-repeat="section in ctrl.entity.sections">
+ 
+  
+      <li ng-repeat="section in ctrl.entity.sections">
       <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
     </li>
   </ul>
   <div class="tab-content-wrapper">
     <div class="tab-content ng-scope" id="0" ng-class="{'active':$first}">
+      <div align="center">
+	<small><a ui-sref="generalLink.new">New Link</a></small> | <small><a ui-sref="generalNote.new">New Note</a></small>
+      </div>
       <div align="center" ng-if="ctrl.entity.generalNotes.length > 0"><h5>General Notes</h5></div>
       <div ng-repeat="gn in ctrl.entity.generalNotes">
 	<div class="row" ng-if="ctrl.entity.generalNotes.length > 0"</div>

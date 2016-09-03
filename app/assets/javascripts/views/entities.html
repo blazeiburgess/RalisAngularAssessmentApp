@@ -11,7 +11,7 @@
       </div>
       <div class="nine columns">
 	// {{ entity.description }}<br> 
-	|| <div style="display: inline;" ng-repeat="cat in entity.categories"><small>{{cat.name}}</small> || </div>
+	<div ng-if="entity.categories.length > 0">|| <div style="display: inline;" ng-repeat="cat in entity.categories"><small>{{cat.name}}</small> || </div></div>
       </div>
     </div>
     <hr>
