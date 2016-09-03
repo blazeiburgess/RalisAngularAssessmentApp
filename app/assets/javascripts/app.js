@@ -21,8 +21,13 @@ angular
   })
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-	url: '/home',
+    .state('entities', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+      .state('entities.index', {
+	url: '/entities',
 	templateUrl: 'views/home.html',
 	controller: 'MainCtrl as main',
 	resolve: {
@@ -31,11 +36,6 @@ angular
 	  }
 	}
       })
-    .state('entities', {
-      abstract: true,
-      url: '',
-      template: '<div ui-view></div>'
-    })
     .state('entities.new', {
       url: '/entities/new',
       templateUrl: 'views/entity_form.html',
@@ -46,7 +46,7 @@ angular
 	// }
       }
     })    
-    .state('entities.index', {
+    .state('entities.show', {
       url: '/entities/:id',
       templateUrl: 'views/entities.html',
       controller: 'EntityCtrl as ctrl',
@@ -81,5 +81,5 @@ angular
 	}
       }
     })
-    $urlRouterProvider.otherwise('home')
+    $urlRouterProvider.otherwise('entities.index')
   }])
