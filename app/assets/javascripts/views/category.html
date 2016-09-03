@@ -1,5 +1,14 @@
 <h3 align="center">{{ ctrl.category.name }}</h3>
 <li ng-repeat="entity in ctrl.category.entities">
-  <a href="/#/entities/{{ entity.id }}">{{ entity.name }}</a>
+  <!-- <a href="/#/entities/{{ entity.id }}">{{ entity.name }}</a> -->
+    <div class="row">
+      <div class="three columns" align="center">
+	<h5><a href="/#/entities/{{ entity.id }}">{{entity.name }}</a></h5> 
+      </div>
+      <div class="nine columns">
+	|| {{ entity.description }}<br> 
+      </div>
+    </div>
+    <hr>
 </li>
 

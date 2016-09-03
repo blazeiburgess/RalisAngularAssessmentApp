@@ -50,11 +50,11 @@ angular
       url: '/entities/new',
       templateUrl: 'views/entity_form.html',
       controller: 'NewEntityCtrl as ctrl',
-      resolve: {
-	entity: function (NewEntityCtrl) {
-	  return {};
-	}
-      }
+      // resolve: {
+	// entity: function (NewEntityCtrl) {
+	//   return {};
+	// }
+      // }
     })    
     .state('category', {
       abstract: true,
