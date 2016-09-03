@@ -6,6 +6,10 @@ function MainService($http) {
   this.getEntity = function (id) {
     return $http.get('/entities/' + id);
   }
+
+  this.postEntity = function (hash) {
+    return $http.post('/entities', hash)
+  }
 }
 
 angular
