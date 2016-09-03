@@ -36,6 +36,16 @@ angular
       url: '',
       template: '<div ui-view></div>'
     })
+    .state('entities.new', {
+      url: '/entities/new',
+      templateUrl: 'views/entity_form.html',
+      controller: 'NewEntityCtrl as ctrl',
+      resolve: {
+	// entity: function (NewEntityCtrl) {
+	//   return {};
+	// }
+      }
+    })    
     .state('entities.index', {
       url: '/entities/:id',
       templateUrl: 'views/entities.html',
@@ -46,16 +56,6 @@ angular
 	}
       }
     })
-    .state('entities.new', {
-      url: '/entities/new',
-      templateUrl: 'views/entity_form.html',
-      controller: 'NewEntityCtrl as ctrl',
-      // resolve: {
-	// entity: function (NewEntityCtrl) {
-	//   return {};
-	// }
-      // }
-    })    
     .state('category', {
       abstract: true,
       url: '',
