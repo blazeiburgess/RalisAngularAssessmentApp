@@ -8,7 +8,10 @@ a:hover {
 
 .navbar-list {
   height: auto;
+  background-color: white;
   padding: 1em 0;
+  width: 100%;
+  position: fixed;
 }
 
 .navbar-list li {
