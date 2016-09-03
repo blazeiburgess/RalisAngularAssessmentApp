@@ -11,7 +11,6 @@ function NewEntityCtrl (entity, MainService, $state) {
 
   this.postEntity = function () {
     MainService.postEntity(self.data).then(function (resp) {
-      alert(resp);
       $state.go('entities.show',{id: resp.data.id})
     });
     
