@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
+gem 'ng-rails-csrf'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

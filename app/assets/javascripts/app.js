@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'templates'])
+  .module('app', ['ui.router', 'templates', 'ng-rails-csrf'])
   // tab directive credit to Anita Salunke:
   //   http://codepen.io/anita_salunke
   .directive('tabDynamic', function(){
