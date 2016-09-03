@@ -1,8 +1,8 @@
 <h3>New Entity</h3>
-<form ng-submit="postEntity()">
-  <input type="text" placeholder="Name/Title..." ng-model="ctrl.entity.name" /><br>
-  <textarea ng-model="ctrl.entity.description">Description...</textarea><br>
-  <input type="submit" />
+<form ng-submit="ctrl.postEntity(ctrl.data.entity)">
+  <input type="text" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" /><br>
+  <textarea ng-model="ctrl.data.entity.description">Description...</textarea><br>
+  <input type="submit" value="submit" />
 </form>
 <script type="text/javascript">
   $(document).ready(function() {

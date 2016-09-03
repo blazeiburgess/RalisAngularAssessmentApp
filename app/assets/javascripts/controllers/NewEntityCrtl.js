@@ -1,4 +1,4 @@
-function NewEntityCtrl (entity, EntityCtrl, $state) {
+function NewEntityCtrl (entity, MainService, $state) {
   var self = this;
   this.entity = new Entity(entity);
 
@@ -9,7 +9,7 @@ function NewEntityCtrl (entity, EntityCtrl, $state) {
     }
   }
 
-  this.postEntity = function (entity) {
+  this.postEntity = function () {
     MainService.postEntity(self.data).then(function (resp) {
       $state.go('entities.show',{id: resp.data.id})
     });

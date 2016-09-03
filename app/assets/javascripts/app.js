@@ -46,9 +46,9 @@ angular
       templateUrl: 'views/entity_form.html',
       controller: 'NewEntityCtrl as ctrl',
       resolve: {
-	// entity: function (NewEntityCtrl) {
-	//   return;
-	// }
+	entity: function () {
+	  return { name: "", description: "Description..." }; 
+	}
       }
     })    
     .state('entities.show', {
