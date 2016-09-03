@@ -10,12 +10,11 @@ class EntitiesController < ApplicationController
   end
 
   def create
-    byebug
     entity = Entity.new(entity_params)
     if entity.save
       render json: entity, status: 201
     else
-      render json: {status: 404}
+      render json: {status: "Submission failed. Please try again"}
     end
   end
 

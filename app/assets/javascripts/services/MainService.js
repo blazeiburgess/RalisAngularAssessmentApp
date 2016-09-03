@@ -8,9 +8,7 @@ function MainService($http) {
   }
 
   this.postEntity = function (hash) {
-    return $http.post('/entities', hash).then(function (resp) {
-      alert(resp.status);
-    });
+    return $http.post('/entities', hash);
   }
 }
 
