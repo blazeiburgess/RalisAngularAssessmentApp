@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index, :create, :update, :destroy]
   resource :general_links, only: [:create, :update]
   resources :general_notes, only: [:create, :update]
+  resources :links, only: [:create, :update]
 end
