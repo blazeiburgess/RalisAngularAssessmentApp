@@ -4,7 +4,8 @@
     <div class="message-alert" ng-message="required" ng-if="LinkForm.title.$touched" align="center">A title is required for submission</div><br>
   </div>
   <form name="LinkForm" ng-submit="ctrl.postGeneralLink()">
-  <input type="hidden" name="entity_id" ng-model="ctrl.data.link.entity_id" value="{{ctrl.data.link.entity_id}}" />
+  <input type="hidden" name="entity_id" ng-model="ctrl.data.link.entity_id" value="{{ctrl.data.link.entity_id}}" ng-if="ctrl.data.link.entity_id !== undefined" />
+  <input type="hidden" name="section_id" ng-model="ctrl.data.link.section_id" value="{{ctrl.data.link.section_id}}" ng-if="ctrl.data.link.section_id !== undefined" />
   <input type="text" name="title" placeholder="Name/Title..." ng-model="ctrl.data.link.title" required="required" /><br>
   <textarea ng-model="ctrl.data.link.description" name="description" class="js-untouched"></textarea><br>
   <input type="text" name="href" placeholder="URL..." ng-model="ctrl.data.link.href" required="required" /><br>
