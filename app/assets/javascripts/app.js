@@ -113,7 +113,19 @@ angular
     .state('generalLinks.new', {
       url: '/entities/:entity_id/links/new',
       templateUrl: 'views/link_form.html',
-      // controller: 'LinkCtrl as ctrl'
+      controller: 'LinkCtrl as ctrl',
+      resolve: {
+	link: function ($stateParams) {
+	  return {
+	    name: "",
+	    description: "Description...",
+	    href: "",
+	    archive: "",
+	    entity_id: $stateParams.entity_id,
+	    section_id: null
+	  }
+	}
+      }
     })
     $urlRouterProvider.otherwise('home')
   }])
