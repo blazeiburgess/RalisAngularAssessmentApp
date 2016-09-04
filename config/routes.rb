@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :general_notes, only: [:create, :update]
   resources :links, only: [:create, :update]
   resources :notes, only: [:create, :update]
+  resources :subsections, only: [:create, :update]
 end
