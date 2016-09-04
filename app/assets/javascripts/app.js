@@ -133,7 +133,7 @@ angular
     })
     .state('generalNotes.new', {
       url: '/entities/:entity_id/notes/new',
-      templateUrl: 'views/note_form.html',
+      templateUrl: 'views/general_note_form.html',
       controller: 'NoteCtrl as ctrl',
       resolve: {
 	note: function ($stateParams) {
@@ -154,6 +154,28 @@ angular
       url: '/entities/:entity_id/subsections/:subsection_id/links/new',
       templateUrl: 'views/link_form.html',
       controller: 'LinkCtrl as ctrl',
+      resolve: {
+	link: function ($stateParams) {
+	  return {
+	    name: "",
+	    description: "Description...",
+	    href: "",
+	    archive: "",
+	    entity_id: $stateParams.entity_id,
+	    subsection_id: $stateParams.subsection_id
+	  }
+	}
+      }
+    })
+    .state('notes', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('notes.new', {
+      url: '/entities/:entity_id/subsections/:subsection_id/notes/new',
+      templateUrl: 'views/note_form.html',
+      controller: 'NoteCtrl as ctrl',
       resolve: {
 	link: function ($stateParams) {
 	  return {

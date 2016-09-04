@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resource :general_links, only: [:create, :update]
   resources :general_notes, only: [:create, :update]
   resources :links, only: [:create, :update]
+  resources :notes, only: [:create, :update]
 end
