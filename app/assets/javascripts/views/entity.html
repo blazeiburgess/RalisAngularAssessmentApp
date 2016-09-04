@@ -5,9 +5,7 @@
     <small><a ui-sref="sections.new({id: {{ctrl.entity.id}} })">New Section</a></small>
   </div>
   <ul id="tabs">
-    <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>
- 
-  
+    <li><a href="#0" tab-dynamic ng-class="{'current':$first}">Main</a></li>  
       <li ng-repeat="section in ctrl.entity.sections">
       <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
     </li>
@@ -53,10 +51,11 @@
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
       <div align="center">
 	<p ng-if="section.description.length > 0">{{section.description}}</p>
-	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small>
+	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
+	<input type="text" ng-model="search.name" placeholder="Search by name..." />	
       </div>
       <hr>
-      <li ng-repeat="subsection in section.subsections">
+      <li ng-repeat="subsection in section.subsections |filter:search">
 	<div align="center">
 	  <h5>{{ subsection.name }}</h5> 
 	  <p>{{ subsection.description }}</p>
