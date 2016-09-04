@@ -145,5 +145,26 @@ angular
 	}
       }
     })
+    .state('links', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('links.new', {
+      url: '/subsections/:subsection_id/links/new',
+      templateUrl: 'views/link_form.html',
+      controller: 'LinkCtrl as ctrl',
+      resolve: {
+	link: function ($stateParams) {
+	  return {
+	    name: "",
+	    description: "Description...",
+	    href: "",
+	    archive: "",
+	    subsection_id: $stateParams.subsection_id
+	  }
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
