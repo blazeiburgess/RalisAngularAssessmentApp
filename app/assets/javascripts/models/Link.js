@@ -5,5 +5,5 @@ var Link =  function(linkJSON) {
   this.href = linkJSON.href;
   this.archive = linkJSON.archive;
   this.entity_id = linkJSON.entity_id;
-  this.section_id = linkJSON.section_id;
+  this.subsection_id = linkJSON.subsection_id;
 }

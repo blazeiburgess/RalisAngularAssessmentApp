@@ -10,7 +10,7 @@ function LinkCtrl (link, LinkService, $state) {
       href: self.link.href,
       archive: self.link.archive,
       entity_id: self.link.entity_id,
-      section_id: self.link.section_id
+      section_id: self.link.subsection_id
     }
   }; 
 
