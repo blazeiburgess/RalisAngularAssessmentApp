@@ -7,7 +7,7 @@ function NoteCtrl (note, NoteService, $state) {
       name: self.note.name,
       body: self.note.body,
       entity_id: self.note.entity_id,
-      section_id: self.note.section_id
+      subsection_id: self.note.section_id
     }
   }; 
 
