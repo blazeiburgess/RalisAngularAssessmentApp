@@ -177,7 +177,7 @@ angular
       templateUrl: 'views/note_form.html',
       controller: 'NoteCtrl as ctrl',
       resolve: {
-	link: function ($stateParams) {
+	note: function ($stateParams) {
 	  return {
 	    name: "",
 	    description: "Description...",
