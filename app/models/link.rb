@@ -3,7 +3,7 @@ class Link < ApplicationRecord
   before_save :check_archive_link
 
   def check_archive_link
-    unless !!self.archive
+    unless !!self.archive && !self.archive.empty?
       self.archive = "https://archive.is/" + self.href
     end
   end
