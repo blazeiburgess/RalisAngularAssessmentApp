@@ -122,7 +122,7 @@ angular
 	    href: "",
 	    archive: "",
 	    entity_id: $stateParams.entity_id,
-	    section_id: null
+	    section_id: 0
 	  }
 	}
       }

@@ -20,6 +20,13 @@ function LinkCtrl (link, LinkService, $state) {
     
   }
 
+  this.postGeneralLink = function () { 
+    LinkService.postGeneralLink(self.data).then(function (resp) { 
+      $state.go('entities.show',{id: self.data.link.entity_id})
+    });
+    
+  }
+
 }
 
 angular
