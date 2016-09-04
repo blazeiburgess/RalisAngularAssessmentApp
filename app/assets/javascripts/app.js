@@ -126,5 +126,24 @@ angular
 	}
       }
     })
+    .state('generalNotes', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('generalNotes.new', {
+      url: '/entities/:entity_id/notes/new',
+      templateUrl: 'views/note_form.html',
+      controller: 'NoteCtrl as ctrl',
+      resolve: {
+	note: function ($stateParams) {
+	  return {
+	    title: "",
+	    body: "",
+	    entity_id: $stateParams.entity_id
+	  }
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
