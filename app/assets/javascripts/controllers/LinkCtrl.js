@@ -1,7 +1,8 @@
-function LinkCtrl (link, LinkService, $state) {
+function LinkCtrl (link, LinkService, $state) { 
   var self = this;
+  
   this.link = new Link(link);
-
+  // alert('controller');
   this.data = {
     link: {
       name: self.link.name,
@@ -11,7 +12,7 @@ function LinkCtrl (link, LinkService, $state) {
       entity_id: self.link.entity_id,
       section_id: self.link.section_id
     }
-  }
+  }; 
 
   this.postLink = function () { 
     LinkService.postLink(self.data).then(function (resp) { 

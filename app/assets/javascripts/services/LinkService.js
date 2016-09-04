@@ -1,4 +1,5 @@
 function LinkService($http) {
+  alert("service")
   this.postGeneralLink = function (hash) {
     alert('called');
     return $http.post('/general_links', hash).then(function(resp) { 

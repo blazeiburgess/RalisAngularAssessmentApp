@@ -121,8 +121,7 @@ angular
 	    description: "Description...",
 	    href: "",
 	    archive: "",
-	    entity_id: $stateParams.entity_id,
-	    section_id: 0
+	    entity_id: $stateParams.entity_id
 	  }
 	}
       }
