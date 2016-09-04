@@ -105,5 +105,15 @@ angular
 	}
       }
     })
+    .state('generalLinks', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('generalLinks.new', {
+      url: '/entities/:entity_id/links/new',
+      templateUrl: 'views/link_form.html',
+      // controller: 'LinkCtrl as ctrl'
+    })
     $urlRouterProvider.otherwise('home')
   }])
