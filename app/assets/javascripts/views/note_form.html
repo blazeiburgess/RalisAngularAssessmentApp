@@ -4,7 +4,8 @@
     <div class="message-alert" ng-message="required" ng-if="NoteForm.title.$touched" align="center">A title is required for submission</div><br>
   </div>
   <form name="NoteForm" ng-submit="ctrl.postGeneralNote()">
-  <input type="hidden" name="entity_id" ng-model="ctrl.data.note.entity_id" value="{{ctrl.data.note.entity_id}}" />
+  <input type="hidden" name="entity_id" ng-model="ctrl.data.note.entity_id" value="{{ctrl.data.note.entity_id}}" ng-if="ctrl.data.note.entity_id !== undefined"/>
+  <input type="hidden" name="section_id" ng-model="ctrl.data.note.section_id" value="{{ctrl.data.note.section_id}}" ng-if="ctrl.data.note.section_id !== undefined" />
   <input type="text" name="title" placeholder="Name/Title..." ng-model="ctrl.data.note.title" required="required" /><br>
   <textarea ng-model="ctrl.data.note.body" name="body" class="js-untouched"></textarea><br>
   <input type="submit" value="submit" ng-disabled="NoteForm.$invalid" />
