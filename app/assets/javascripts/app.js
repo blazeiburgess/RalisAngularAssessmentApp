@@ -112,7 +112,7 @@ angular
     })
     .state('generalLinks.new', {
       url: '/entities/:entity_id/links/new',
-      templateUrl: 'views/link_form.html',
+      templateUrl: 'views/general_link_form.html',
       controller: 'LinkCtrl as ctrl',
       resolve: {
 	link: function ($stateParams) {
