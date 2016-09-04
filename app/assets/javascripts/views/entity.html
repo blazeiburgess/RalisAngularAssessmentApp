@@ -52,10 +52,12 @@
       <div align="center">
 	<p ng-if="section.description.length > 0">{{section.description}}</p>
 	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
-	<input type="text" ng-model="search.name" placeholder="Search by name..." />	
+	<input type="text" ng-model="search.name" placeholder="Filter by heading..." />	
+	<input type="text" ng-model="lsearch" placeholder="Filter links..." />	
+	<input type="text" ng-model="nsearch" placeholder="Filter notes..." />	
       </div>
       <hr>
-      <li ng-repeat="subsection in section.subsections |filter:search">
+      <li ng-repeat="subsection in section.subsections |filter:search ">
 	<div align="center">
 	  <h5>{{ subsection.name }}</h5> 
 	  <p>{{ subsection.description }}</p>
@@ -66,7 +68,7 @@
 	    {{ subsection.name }} Links:
 	  </div>
 	  <div class="ten columns">
-	    <div ng-repeat="link in subsection.links">
+	    <div ng-repeat="link in subsection.links | filter:lsearch">
 	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
 	      <br>{{ link.description }}<br ng-if="link.description.length > 0">
 	      <a href="{{link.archive}}" target="_blank">cached</a>
@@ -79,7 +81,7 @@
 	    {{ subsection.name }} Notes:
 	  </div>
 	  <div class="ten columns">
-	    <div ng-repeat="note in subsection.notes">
+	    <div ng-repeat="note in subsection.notes | filter:nsearch">
 	      <span class="note-title">{{note.title}}</span> <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
 	      {{note.body}}<hr>
 	    </div>
