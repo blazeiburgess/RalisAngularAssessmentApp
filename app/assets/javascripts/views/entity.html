@@ -53,6 +53,7 @@
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
       <div align="center" ng-if="section.description.length > 0">
 	<p>{{section.description}}</p>
+	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small>
       </div>
       <hr>
       <li ng-repeat="subsection in section.subsections">

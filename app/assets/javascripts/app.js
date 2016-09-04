@@ -189,5 +189,25 @@ angular
 	}
       }
     })
+    .state('subsections', {
+      abstract: true,
+      url: '',
+      template: '<div ui-view></div>'
+    })
+    .state('subsections.new', {
+      url: '/entities/:entity_id/sections/:section_id/subsections/new',
+      templateUrl: 'views/subsection_form.html',
+      controller: 'SubsectionCtrl as ctrl',
+      resolve: {
+	subsection: function ($stateParams) {
+	  return {
+	    name: "",
+	    description: "Description...",
+	    entity_id: $stateParams.entity_id,
+	    section_id: $stateParams.section_id
+	  }
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
