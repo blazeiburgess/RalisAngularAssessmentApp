@@ -12,7 +12,6 @@ function NoteCtrl (note, NoteService, $state) {
   }; 
 
   this.postNote = function () { 
-    alert('called');
     NoteService.postNote(self.data).then(function (resp) { 
       $state.go('entities.show',{id: self.data.note.entity_id})
     });
