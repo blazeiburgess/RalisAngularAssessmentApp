@@ -1,13 +1,16 @@
 <div align="center">
-  <h3>Subjects</h3>
+  <h3>Subjects</h3> 
   <small><a ui-sref="entities.new">New Entry</a></small>
   <hr>
+  <input type="text" ng-model="search.name" placeholder="Search by name..." />
+  <input type="text" ng-model="search.description" placeholder="Search by description..." />
 </div>
+
 <div>
-  <li ng-repeat="entity in main.entities">
+  <li ng-repeat="entity in main.entities | filter:search">
     <div class="row">
       <div class="three columns" align="center">
-	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{entity.name }}</a></h5> 
+	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{ entity.name }}</a></h5> 
       </div>
       <div class="nine columns">
 	// {{ entity.description }}<br> 
