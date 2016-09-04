@@ -56,9 +56,10 @@
       </div>
       <hr>
       <li ng-repeat="subsection in section.subsections">
-	<small><a ui-sref="links.new({subsection_id: {{ subsection.id }} })">New Link</a></small> | <small><a ui-sref="notes.new({subsection_id: {{ subsection.id }} })">New Note</a></small>
-	<div align="center"><h5>{{ subsection.name }}</h5>
+	<div align="center">
+	  <h5>{{ subsection.name }}</h5> 
 	  <p>{{ subsection.description }}</p>
+	  <small><a ui-sref="links.new({subsection_id: {{ subsection.id }}, entity_id: {{ ctrl.entity.id }} })">New Link</a></small> | <small><a ui-sref="notes.new({subsection_id: {{ subsection.id }}, entity_id: {{ ctrl.entity.id }} })">New Note</a></small><hr>
 	</div>
 	<div class="row" ng-if="subsection.links.length > 0">
 	  <div class="two columns title" align="center">

@@ -151,7 +151,7 @@ angular
       template: '<div ui-view></div>'
     })
     .state('links.new', {
-      url: '/subsections/:subsection_id/links/new',
+      url: '/entities/:entity_id/subsections/:subsection_id/links/new',
       templateUrl: 'views/link_form.html',
       controller: 'LinkCtrl as ctrl',
       resolve: {
@@ -161,6 +161,7 @@ angular
 	    description: "Description...",
 	    href: "",
 	    archive: "",
+	    entity_id: $stateParams.entity_id,
 	    subsection_id: $stateParams.subsection_id
 	  }
 	}
