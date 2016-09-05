@@ -52,11 +52,14 @@
       <div align="center">
 	<p ng-if="section.description.length > 0">{{section.description}}</p>
 	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
-	<input type="text" ng-model="search.name" placeholder="Filter by heading..." />	
+	<input type="text" ng-model="search.name" list="subsection-datalist" placeholder="Filter by heading..." />	
 	<input type="text" ng-model="lsearch" placeholder="Filter links..." />	
 	<input type="text" ng-model="nsearch" placeholder="Filter notes..." />	
       </div>
       <hr>
+      <datalist id="subsection-datalist">
+	  <option ng-repeat="subsection in section.subsections" value="{{ subsection.name }}">
+      </datalist>
       <li ng-repeat="subsection in section.subsections |filter:search ">
 	<div align="center">
 	  <h5>{{ subsection.name }}</h5> 

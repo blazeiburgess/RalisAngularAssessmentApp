@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   def index
-    @entities = Entity.all
+    @entities = Entity.all.sort_by(&:name)
     render json: @entities
   end
 
