@@ -1,11 +1,20 @@
-function CategoryCtrl (categories, CategoryService, $state) {
+function CategoryCtrl (categories, CategoryService, $state, $stateParams) {
   var self = this;
 
   this.categories = []; 
 
+  this.entity_id = $stateParams.entity_id;
+
   this.data = {
     category: {
       name: ''
+    }
+  }
+
+  this.entity_cat_data = {
+    entity_category: {
+      entity_id: '',
+      category_id: ''
     }
   }
 
@@ -32,6 +41,12 @@ function CategoryCtrl (categories, CategoryService, $state) {
     $('input[type="text"]').text('');
     self.hideForm()
   }
+
+  this.postEntityCategory = function () {
+    CategoryService.postEntityCategory(self.entity_cat_data)
+    $state.go('entities.index');
+  }
+
   $('.hidden').hide()
 }
 

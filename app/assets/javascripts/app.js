@@ -94,10 +94,8 @@ angular
       templateUrl: 'views/add_category.html',
       controller: 'CategoryCtrl as ctrl',
       resolve: {
-	entity_category: function($stateParams) {
-	  return { 
-	    entity_id: $stateParams.entity_id
-	  }
+	categories: function (CategoryService) {
+	  return CategoryService.getCategories().then(function (resp) {return resp.data});
 	}
       }
     })

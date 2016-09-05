@@ -1,5 +1,8 @@
 <h3>Add Category</h3>
-{{ ctrl }}
-<form>
-  <input type="hidden" name="entity_id" value="{{ ctrl.entity_id }}" />
+<form ng-submit="ctrl.postEntityCategory()">
+  <input type="hidden" name="entity_id" ng-model="ctrl.entity_cat_data.entity_category.entity_id" value="{{ ctrl.entity_id }}" />
+  <select name="category_id" ng-model="ctrl.entity_cat_data.entity_category.category_id">
+    <option ng-repeat="category in ctrl.categories" value="{{ category.id }}">{{ category.name }}</option>
+  </select>
+  <input type="submit" value="submit" />
 </form>
