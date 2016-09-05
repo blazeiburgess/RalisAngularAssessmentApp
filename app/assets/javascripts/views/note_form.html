@@ -10,12 +10,3 @@
   <textarea ng-model="ctrl.data.note.body" name="body" class="js-untouched"></textarea><br>
   <input type="submit" value="submit" ng-disabled="NoteForm.$invalid" />
 </form>
-<script type="text/javascript">
-$(document).ready(function() {
-  $(".js-untouched").focus(function() { 
-    $(this).text('');
-    $(this).val('');
-    $(this).removeClass('js-untouched');
-  });
-});
-</script>

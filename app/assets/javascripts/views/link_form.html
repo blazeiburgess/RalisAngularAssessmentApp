@@ -1,5 +1,4 @@
 <h3>New Link</h3>
-  {{ ctrl }}
   <div ng-messages="LinkForm.title.$error">
     <div class="message-alert" ng-message="required" ng-if="LinkForm.title.$touched" align="center">A title is required for submission</div><br>
   </div> 
@@ -15,12 +14,3 @@
   <input type="text" name="archive" placeholder="Archived link...(optional)" ng-model="ctrl.data.link.archive" /><br>
   <input type="submit" value="submit" ng-disabled="LinkForm.$invalid" />
 </form>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#js-untouched").focus(function() { 
-      $(this).text('');
-      $(this).val('');
-      $(this).removeId('js-untouched');
-    });
-  });
-</script>
