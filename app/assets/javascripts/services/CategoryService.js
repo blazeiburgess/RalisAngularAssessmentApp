@@ -6,8 +6,9 @@ function CategoryService($http) {
   this.getCategory = function (id) {
     return $http.get('/categories/' + id);
   }
-
-  this.postCategories = function (hash) {
+ 
+  this.postCategory = function (hash) {
+  alert('service');
     return $http.post('/categories', hash);
   }
 }

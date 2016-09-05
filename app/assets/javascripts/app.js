@@ -73,6 +73,9 @@ angular
       resolve: {
 	categories: function (CategoryService) {
 	  return CategoryService.getCategories().then(function (resp) {return resp.data});
+	},
+	cat: function () {
+	  return {};
 	}
       }
     })
