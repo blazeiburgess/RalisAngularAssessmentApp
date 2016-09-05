@@ -5,9 +5,13 @@
   </div> 
   <form name="LinkForm" ng-submit="ctrl.postLink()"> 
   <input type="hidden" name="subsection_id" ng-model="ctrl.data.link.subsection_id" value="{{ctrl.data.link.subsection_id}}" /> 
+  <label>Title</label>
   <input type="text" name="title" placeholder="Name/Title..." ng-model="ctrl.data.link.title" required="required" /><br>
+  <label>Description</label>
   <textarea ng-model="ctrl.data.link.description" name="description" id="js-untouched"></textarea><br>
+  <label>Link</label>
   <input type="text" name="href" placeholder="URL..." ng-model="ctrl.data.link.href" required="required" /><br>
+  <label>Archived Link</label>
   <input type="text" name="archive" placeholder="Archived link...(optional)" ng-model="ctrl.data.link.archive" /><br>
   <input type="submit" value="submit" ng-disabled="LinkForm.$invalid" />
 </form>
@@ -15,7 +19,8 @@
   $(document).ready(function() {
     $("#js-untouched").focus(function() { 
       $(this).text('');
-      $(this).removeClass('js-untouched');
+      $(this).val('');
+      $(this).removeId('js-untouched');
     });
   });
 </script>

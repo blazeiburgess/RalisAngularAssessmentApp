@@ -13,6 +13,7 @@
 $(document).ready(function() {
   $(".js-untouched").focus(function() { 
     $(this).text('');
+    $(this).val('');
     $(this).removeClass('js-untouched');
   });
 });

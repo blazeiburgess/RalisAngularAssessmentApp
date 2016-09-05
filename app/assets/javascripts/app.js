@@ -47,7 +47,7 @@ angular
       controller: 'NewEntityCtrl as ctrl',
       resolve: {
 	entity: function () {
-	  return { name: "", description: "Description..." }; 
+	  return { name: "", description: "" }; 
 	}
       }
     })    
@@ -99,7 +99,7 @@ angular
 	section: function ($stateParams) {
 	  return {
 	    name: "", 
-	    description: "Description...", 
+	    description: "", 
 	    entity_id: $stateParams.id
 	  }
 	}
@@ -118,7 +118,7 @@ angular
 	link: function ($stateParams) {
 	  return {
 	    name: "",
-	    description: "Description...",
+	    description: "",
 	    href: "",
 	    archive: "",
 	    entity_id: $stateParams.entity_id
@@ -158,7 +158,7 @@ angular
 	link: function ($stateParams) {
 	  return {
 	    name: "",
-	    description: "Description...",
+	    description: "",
 	    href: "",
 	    archive: "",
 	    entity_id: $stateParams.entity_id,
@@ -180,7 +180,7 @@ angular
 	note: function ($stateParams) {
 	  return {
 	    name: "",
-	    description: "Description...",
+	    description: "",
 	    href: "",
 	    archive: "",
 	    entity_id: $stateParams.entity_id,
@@ -202,7 +202,7 @@ angular
 	subsection: function ($stateParams) {
 	  return {
 	    name: "",
-	    description: "Description...",
+	    description: "",
 	    entity_id: $stateParams.entity_id,
 	    section_id: $stateParams.section_id
 	  }
