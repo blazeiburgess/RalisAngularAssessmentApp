@@ -1,8 +1,13 @@
 <div align="center">
   <h3>Categories</h3>
-  <input type="text" ng-model="search.name" placeholder="Filter..." /><br>
+  <input type="text" ng-model="search.name" list="category-datalist" placeholder="Filter..." /><br>
   <small><a ng-click="ctrl.addForm()" ui-sref="category.index">New Category</a></small>
 </div>
+<datalist id="category-datalist">
+  <div ng-repeat="category in ctrl.categories">
+    <option value="{{ category.name }}">
+  </div>
+</datalist>
 <li ng-repeat="category in ctrl.categories |filter:search">
   <a ui-sref="category.show({id: {{ category.id }} })"><strong>{{ category.name }}</strong></a> <span style="opacity: 0.4;">({{ category.entitiesCount }})</span>
 </li>
