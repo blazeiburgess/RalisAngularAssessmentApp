@@ -10,6 +10,10 @@ function CategoryService($http) {
   this.postCategory = function (hash) {
     return $http.post('/categories', hash);
   }
+
+  this.postEntityCategory = function (hash) {
+    return $http.post('/entity_categories', hash);
+  }
 }
 
 angular
