@@ -1,4 +1,5 @@
 <h3>Add Category</h3>
+{{ ctrl.entity_cat_data }}
 <form ng-submit="ctrl.postEntityCategory()">
   <input type="hidden" name="entity_id" ng-model="ctrl.entity_cat_data.entity_category.entity_id" value="{{ ctrl.entity_id }}" />
   <select name="category_id" ng-model="ctrl.entity_cat_data.entity_category.category_id">

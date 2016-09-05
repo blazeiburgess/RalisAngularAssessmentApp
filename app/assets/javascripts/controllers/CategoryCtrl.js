@@ -13,7 +13,7 @@ function CategoryCtrl (categories, CategoryService, $state, $stateParams) {
 
   this.entity_cat_data = {
     entity_category: {
-      entity_id: '',
+      entity_id: self.entity_id,
       category_id: ''
     }
   }
