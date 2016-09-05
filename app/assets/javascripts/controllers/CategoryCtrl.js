@@ -1,7 +1,13 @@
-function CategoryCtrl (categories, CategoryService) {
+function CategoryCtrl (categories, CategoryService, $state) {
   var self = this;
 
-  this.categories = [];
+  this.categories = []; 
+
+  this.data = {
+    category: {
+      name: ''
+    }
+  }
 
   angular.forEach(categories, function(categoriesResp) {
     self.categories.push(new Category(categoriesResp))
@@ -16,10 +22,15 @@ function CategoryCtrl (categories, CategoryService) {
     $('.hidden').hide();
   }
 
-  this.postCategories = function (data) { 
-    CategoryService.postCategory(data).then(function (resp) {
-      self.categories.push(new Category(resp))
-    });
+  this.postCategories = function () { 
+    CategoryService.postCategory(self.data).then(function (resp) {
+      self.categories.push(new Category(resp.data))
+    }); 
+    $state.go('category.index');
+    // alert(self.categories);
+    $('input[type="text"]').val('');
+    $('input[type="text"]').text('');
+    self.hideForm()
   }
   $('.hidden').hide()
 }

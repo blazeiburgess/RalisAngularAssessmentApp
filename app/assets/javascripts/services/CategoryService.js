@@ -8,7 +8,6 @@ function CategoryService($http) {
   }
  
   this.postCategory = function (hash) {
-  alert('service');
     return $http.post('/categories', hash);
   }
 }

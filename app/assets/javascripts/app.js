@@ -89,6 +89,18 @@ angular
 	}
       }
     })
+    .state('category.add', {
+      url: '/entities/:entity_id/categories/join',
+      templateUrl: 'views/add_category.html',
+      controller: 'CategoryCtrl as ctrl',
+      resolve: {
+	entity_category: function($stateParams) {
+	  return { 
+	    entity_id: $stateParams.entity_id
+	  }
+	}
+      }
+    })
     .state('sections', {
       abstract: true,
       url: '',
