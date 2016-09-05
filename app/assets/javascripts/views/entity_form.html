@@ -3,7 +3,9 @@
     <div class="message-alert" ng-message="required" ng-if="EntityForm.name.$touched" align="center">A name is required for submission</div><br>
   </div>
 <form name="EntityForm" ng-submit="ctrl.postEntity(ctrl.data.entity)">
+  <label>Name</label>
   <input type="text" name="name" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" required="required" /><br>
+  <label>Description</label>
   <textarea ng-model="ctrl.data.entity.description" class="js-untouched">Description...</textarea><br>
   <input type="submit" value="submit" ng-disabled="EntityForm.$invalid" />
 </form>

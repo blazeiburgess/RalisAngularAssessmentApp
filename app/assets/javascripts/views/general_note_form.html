@@ -5,7 +5,9 @@
   </div>
   <form name="NoteForm" ng-submit="ctrl.postGeneralNote()">
   <input type="hidden" name="entity_id" ng-model="ctrl.data.note.entity_id" value="{{ctrl.data.note.entity_id}}" />
+  <label>Name</label>
   <input type="text" name="title" placeholder="Name/Title..." ng-model="ctrl.data.note.title" required="required" /><br>
+  <label>Body</label>
   <textarea ng-model="ctrl.data.note.body" name="body" class="js-untouched"></textarea><br>
   <input type="submit" value="submit" ng-disabled="NoteForm.$invalid" />
 </form>

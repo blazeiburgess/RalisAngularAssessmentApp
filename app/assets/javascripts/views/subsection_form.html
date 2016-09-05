@@ -4,8 +4,10 @@
   </div>
   <form name="SubsectionForm" ng-submit="ctrl.postSubsection()">
   <input type="hidden" name="section_id" ng-model="ctrl.data.subsection.section_id" value="{{ctrl.data.subsection.section_id}}" />
+  <label>Name</label>
   <input type="text" name="name" placeholder="Name/Title..." ng-model="ctrl.data.subsection.name" required="required" /><br>
-  <textarea ng-model="ctrl.data.subsection.description" class="js-untouched">Description...</textarea><br>
+  <label>Description</label>
+  <textarea ng-model="ctrl.data.subsection.description" class="js-untouched"></textarea><br>
   <input type="submit" value="submit" ng-disabled="SubsectionForm.$invalid" />
 </form>
 <script type="text/javascript">
