@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    categories = Category.all
+    categories = Category.all.sort_by(&:name)
     render json: categories
   end
 
