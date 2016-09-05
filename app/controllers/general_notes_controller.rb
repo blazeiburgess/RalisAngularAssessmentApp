@@ -1,4 +1,8 @@
 class GeneralNotesController < ApplicationController
+  def show
+    note = Note.find(params[:id])
+    render json: note, status: 200
+  end
   def create
     general_note = GeneralNote.new(general_note_params)
     if general_note.save

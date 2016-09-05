@@ -31,6 +31,7 @@
 	    <span class="note-title">{{ gn.title }}</span><br>
 	    <span style="opacity: 0.4;">({{ gn.created_at }})</span><br>
 	    {{ gn.body }}
+	    <small><a ui-sref="generalNotes.edit({general_note_id: {{ gn.id }} })">edit</a></small>
 	    <hr>
 	  </div>
 	</div>
