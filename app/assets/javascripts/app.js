@@ -158,6 +158,16 @@ angular
 	}
       }
     })
+    .state('generalNotes.edit', {
+      url: '/general_notes/:general_note_id/edit',
+      templateUrl: 'views/general_note_form.html',
+      controller: 'NoteCtrl as ctrl',
+      resolve: {
+	note: function (NoteService, $stateParams) {
+	  return NoteService.getNote($stateParams.general_note_id);
+	}
+      }
+    })
     .state('links', {
       abstract: true,
       url: '',
