@@ -1,5 +1,12 @@
-<h3 align="center">{{ ctrl.category.name }}</h3>
-<li ng-repeat="entity in ctrl.category.entities">
+<div align="center">
+  <h3>{{ ctrl.category.name }}</h3>
+  <hr>
+  <input type="text" ng-model="search.name" list="name-datalist" placeholder="Search by name..." />
+  <input type="text" ng-model="search.description" placeholder="Search by description..." />
+  <!-- <input type="text" ng&#45;model="search.categories.name" list="category&#45;datalist" placeholder="Search by tag..." /> -->
+  <hr>
+</div>
+<li ng-repeat="entity in ctrl.category.entities | filter:search">
   <!-- <a href="/#/entities/{{ entity.id }}">{{ entity.name }}</a> -->
     <div class="row">
       <div class="three columns" align="center">
