@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center"> 
   <h3>Subjects</h3> 
   <small><a ui-sref="entities.new">New Entry</a></small>
   <hr>
@@ -10,6 +10,11 @@
 <datalist id="name-datalist">
   <div ng-repeat="entity in main.entities">
     <option value="{{ entity.name }}">
+  </div>
+</datalist>
+<datalist id="category-datalist">
+  <div ng-repeat="category in main.categories">
+    <option value="{{ category.name }}">
   </div>
 </datalist>
 <div>
