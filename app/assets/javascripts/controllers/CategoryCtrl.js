@@ -8,7 +8,7 @@ function CategoryCtrl (categories) {
   });
 
   this.addForm = function () {
-    $(this).parent().append('<form><input type="text" ng-model="category" name="name" /></form>');
+    $('.form').append('<input type="text" name="categories[]" /><br>'); 
   }
 }
 
