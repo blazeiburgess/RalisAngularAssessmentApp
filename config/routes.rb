@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :links, only: [:create, :update]
   resources :notes, only: [:create, :update]
   resources :subsections, only: [:create, :update]
+  resources :entity_categories, only: [:create, :update]
 end
