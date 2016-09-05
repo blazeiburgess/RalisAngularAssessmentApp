@@ -26,6 +26,7 @@
       <div class="nine columns">
 	// {{ entity.description }}<br> 
 	<div ng-if="entity.categories.length > 0">|| <div style="display: inline;" ng-repeat="cat in entity.categories.slice(0,5)"><a ui-sref="category.show({id: {{ cat.id }} })"><small>{{cat.name.slice(0,20)}}</small></a> || </div></div>
+	<small><a ui-sref="category.add({entity_id: {{ entity.id }} })">+</a></small>
       </div>
     </div>
     <hr>

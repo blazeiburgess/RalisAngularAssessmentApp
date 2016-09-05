@@ -1,6 +1,5 @@
 class EntityCategoriesController < ApplicationController
   def create
-    byebug
     entity_category = EntityCategory.new(entity_category_params)
     if entity_category.save
       render json: entity_category, status: 201
