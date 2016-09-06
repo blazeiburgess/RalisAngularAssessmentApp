@@ -13,6 +13,15 @@ class LinksController < ApplicationController
     end
   end
 
+  def update
+    link = Link.find(params[:id])
+    if link.update(link_params)
+      render json: link, status: 200
+    else
+      render json: {status: "Failed to update link"}
+    end
+  end
+
   private
     def link_params
       params.require(:link).permit(:title, :description, :href, :archive, :subsection_id)

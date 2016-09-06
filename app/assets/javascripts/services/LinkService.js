@@ -19,10 +19,16 @@ function LinkService($http) {
     }
   }
 
-  this.postLink = function (hash) {
-    return $http.post('/links', hash).then(function(resp) { 
-      return resp
-    });
+  this.postLink = function (hash) { 
+    if (hash.link.id !== undefined) {
+      return $http.patch('/links/' + hash.link.id, hash).then(function (resp) {
+	return resp;
+      });
+    } else {
+      return $http.post('/links', hash).then(function(resp) { 
+	return resp;
+      });
+    }
   }
 }
 
