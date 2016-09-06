@@ -19,6 +19,10 @@
     <div class="tab-content ng-scope" id="0" ng-class="{'active':$first}">
       <div align="center">
 	<small><a ui-sref="generalLinks.new({entity_id: {{ ctrl.entity.id }} })">New Link</a></small> | <small><a ui-sref="generalNotes.new({entity_id: {{ ctrl.entity.id }} })">New Note</a></small>
+	<hr>
+	<input type="text" ng-model="glsearch" placeholder="Filter links..." />	
+	<input type="text" ng-model="gnsearch" placeholder="Filter notes..." />	
+	<hr>
       </div>
       <div align="center" ng-if="ctrl.entity.generalNotes.length > 0"><h5>General Notes</h5></div>
 
@@ -27,7 +31,7 @@
 	    <strong>General Notes:</strong>
 	  </div>
 	  <div class="ten columns">
-      <div ng-repeat="gn in ctrl.entity.generalNotes">
+      <div ng-repeat="gn in ctrl.entity.generalNotes | filter:gnsearch">
 	    <span class="note-title">{{ gn.title }}</span><br>
 	    <span style="opacity: 0.4;">({{ gn.created_at }})</span><br>
 	    {{ gn.body }}
@@ -45,7 +49,7 @@
 	  <strong>General Links:</strong>
 	</div>
 	<div class="ten columns">
-	  <div ng-repeat="gl in ctrl.entity.generalLinks">
+	  <div ng-repeat="gl in ctrl.entity.generalLinks | filter:glsearch">
 	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a><br> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
 	    {{ gl.description }}<br ng-if="gl.description.length > 0">
 	    <a href="{{ gl.archive }}" target="_blank">cached</a>
