@@ -37,7 +37,7 @@ angular
 	controller: 'MainCtrl as main',
 	resolve: {
 	  entities: function (MainService) {
-	    return MainService.getEntities().then(function (resp) {console.log(resp); return resp.data});
+	    return MainService.getEntities().then(function (resp) { return resp.data});
 	  }
 	}
       })
@@ -57,7 +57,7 @@ angular
       controller: 'EntityCtrl as ctrl',
       resolve: { 
 	entity: function (MainService, $stateParams) {
-	  return MainService.getEntity($stateParams.id).then(function (resp) { console.log(resp); return resp.data })
+	  return MainService.getEntity($stateParams.id).then(function (resp) { return resp.data })
 	}
       }
     })

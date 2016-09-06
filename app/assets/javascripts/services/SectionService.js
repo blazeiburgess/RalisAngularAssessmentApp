@@ -4,7 +4,6 @@ function SectionService($http) {
   }
 
   this.postSection = function (hash) {
-    console.log(hash)
     if (hash.section.id !== undefined) {
       return $http.patch('/sections/' + hash.section.id, hash).then(function(resp) { return resp });
     } else {
