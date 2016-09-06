@@ -64,7 +64,7 @@ angular
     .state('entities.edit', {
       url: '/entities/:id/edit',
       templateUrl: 'views/entity_form.html',
-      controller: 'EntityCtrl as ctrl',
+      controller: 'NewEntityCtrl as ctrl',
       resolve: {
 	entity: function(MainService, $stateParams) {
 	  return MainService.getEntity($stateParams.id).then(function (resp) { return resp.data })

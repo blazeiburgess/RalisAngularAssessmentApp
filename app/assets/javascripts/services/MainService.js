@@ -8,9 +8,15 @@ function MainService($http) {
   }
 
   this.postEntity = function (hash) {
-    return $http.post('/entities', hash).then(function(resp) { 
-      return resp
-    });
+    if (hash.id !== undefined) {
+      return $http.post('/entities', hash).then(function(resp) { 
+	return resp;
+      });
+    } else {
+      return $http.patch('/entities/' + hash.entity.id, hash).then(function (resp) {
+	return resp;
+      });
+    }
   }
 }
 

@@ -4,6 +4,7 @@
     <div class="message-alert" ng-message="required" ng-if="EntityForm.name.$touched" align="center">A name is required for submission</div><br>
   </div>
 <form name="EntityForm" ng-submit="ctrl.postEntity(ctrl.data.entity)">
+  <input type="hidden" name="id" value="{{ ctrl.data.entity.id }}" />
   <label>Name</label>
   <input type="text" name="name" placeholder="Name/Title..." ng-model="ctrl.data.entity.name" required="required" /><br>
   <label>Description</label>
