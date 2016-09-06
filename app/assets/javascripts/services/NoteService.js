@@ -8,7 +8,8 @@ function NoteService($http) {
   }
 
   this.postGeneralNote = function (hash) {
-    if (hash.id !== undefined) {
+    console.log(hash);
+    if (hash.note.id === undefined) {
       return $http.post('/general_notes', hash).then(function(resp) { 
 	return resp
       });

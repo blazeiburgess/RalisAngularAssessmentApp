@@ -3,7 +3,7 @@
   <div ng-messages="NoteForm.title.$error">
     <div class="message-alert" ng-message="required" ng-if="NoteForm.title.$touched" align="center">A title is required for submission</div><br>
   </div>
-  <form name="NoteForm" ng-submit="ctrl.postGeneralNote()">
+  <form name="NoteForm" ng-submit="ctrl.postGeneralNote()"> 
   <input type="hidden" name="entity_id" ng-model="ctrl.data.note.entity_id" value="{{ctrl.data.note.entity_id}}" />
   <label>Name</label>
   <input type="text" name="title" placeholder="Name/Title..." ng-model="ctrl.data.note.title" required="required" /><br>
