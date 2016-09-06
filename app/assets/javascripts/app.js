@@ -284,6 +284,7 @@ angular
     })
     .state('subsections.edit', {
       url: '/entities/:entity_id/subsections/:id/edit',
+      templateUrl: 'views/subsection_form.html',
       controller: 'SubsectionCtrl as ctrl',
       resolve: {
 	subsection: function (SubsectionService, $stateParams) {
