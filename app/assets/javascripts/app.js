@@ -23,8 +23,7 @@ angular
     $stateProvider
       .state('home', {
 	url: '/home',
-	templateUrl: 'views/home.html',
-	controller: 'MainCtrl as main'
+	templateUrl: 'views/home.html'
       })
       .state('entities', {
 	abstract: true,
