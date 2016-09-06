@@ -2,6 +2,9 @@
   <div ng-messages="LinkForm.title.$error">
     <div class="message-alert" ng-message="required" ng-if="LinkForm.title.$touched" align="center">A title is required for submission</div><br>
   </div> 
+  <div ng-messages="LinkForm.href.$error">
+    <div class="message-alert" ng-message="required" ng-if="LinkForm.href.$touched" align="center">A link is required for submission</div><br>
+  </div> 
   <form name="LinkForm" ng-submit="ctrl.postLink()"> 
   <input type="hidden" name="subsection_id" ng-model="ctrl.data.link.subsection_id" value="{{ctrl.data.link.subsection_id}}" /> 
   <label>Title</label>
