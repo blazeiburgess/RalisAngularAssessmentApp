@@ -18,6 +18,15 @@ class SectionsController < ApplicationController
     end
   end
 
+  def update
+    section = Section.find(params[:id])
+    if section.update(section_params)
+      render json: section, status: 200
+    else
+      render json: {status: "Failed ot update section"}
+    end
+  end
+
   private
     def section_params
       params.require(:section).permit(:name, :description, :entity_id)
