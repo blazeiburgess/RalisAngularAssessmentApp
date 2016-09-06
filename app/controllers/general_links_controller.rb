@@ -13,6 +13,15 @@ class GeneralLinksController < ApplicationController
     end
   end
 
+  def update
+    general_link = GeneralLink.find(params[:id])
+    if general_link.update(general_link_params)
+      render json: general_link, status: 200
+    else
+      render json: {status: "Failed to create link"}
+    end
+  end
+
   private
     def general_link_params
       params.require(:link).permit(:title, :description, :href, :archive, :entity_id)
