@@ -5,7 +5,8 @@ function LinkCtrl (link, LinkService, $state) {
   // alert('controller');
   this.data = {
     link: {
-      name: self.link.name,
+      id: self.link.id,
+      title: self.link.title,
       description: self.link.description,
       href: self.link.href,
       archive: self.link.archive,

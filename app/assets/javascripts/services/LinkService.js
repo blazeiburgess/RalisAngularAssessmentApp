@@ -4,9 +4,15 @@ function LinkService($http) {
   }
 
   this.postGeneralLink = function (hash) { 
-    return $http.post('/general_links', hash).then(function(resp) { 
-      return resp
-    });
+    if (hash.id !== undefined) {
+      return $http.post('/general_links', hash).then(function(resp) { 
+	return resp;
+      });
+    } else {
+      return $http.patch('/general_links/' + hash.link.id, hash).then(function(resp) {
+	return resp;
+      });
+    }
   }
 
   this.postLink = function (hash) {

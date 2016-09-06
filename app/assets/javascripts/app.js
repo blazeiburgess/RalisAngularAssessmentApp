@@ -144,7 +144,7 @@ angular
       templateUrl: 'views/general_link_form.html',
       controller: 'LinkCtrl as ctrl',
       resolve: {
-	note: function (LinkService, $stateParams) {
+	link: function (LinkService, $stateParams) {
 	  return LinkService.getLink($stateParams.general_link_id).then(function(resp) { return resp.data });
 	}
       }
