@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :general_notes, only: [:show, :create, :update]
   resources :links, only: [:show, :create, :update]
   resources :notes, only: [:show, :create, :update]
-  resources :subsections, only: [:create, :update]
+  resources :subsections, only: [:show, :create, :update]
   resources :entity_categories, only: [:create, :update]
 end

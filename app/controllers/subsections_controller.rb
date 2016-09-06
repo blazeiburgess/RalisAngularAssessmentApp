@@ -18,6 +18,15 @@ class SubsectionsController < ApplicationController
     end
   end
 
+  def update
+    subsection = Subsection.find(params[:id])
+    if subsection.update(subsection_params)
+      render json: subsection, status: 200
+    else
+      render json: {status: "Failed to update subsection"}
+    end
+  end
+
   private
     def subsection_params
       params.require(:subsection).permit(:name, :description, :section_id)
