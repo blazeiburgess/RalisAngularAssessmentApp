@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :entities, only: [:show, :index, :create, :update, :destroy]
   resources :sections
   resources :categories, only: [:show, :index, :create, :update, :destroy]
-  resource :general_links, only: [:create, :update]
+  resources :general_links, only: [:show, :create, :update]
   resources :general_notes, only: [:show, :create, :update]
   resources :links, only: [:create, :update]
   resources :notes, only: [:create, :update]

@@ -1,4 +1,9 @@
 class GeneralLinksController < ApplicationController
+  def show
+    general_link = GeneralLink.find(params[:id])
+    render json: general_link, status: 200
+  end
+
   def create
     general_link = GeneralLink.new(general_link_params)
     if general_link.save
