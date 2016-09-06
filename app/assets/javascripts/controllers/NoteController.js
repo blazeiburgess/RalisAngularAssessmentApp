@@ -4,6 +4,7 @@ function NoteCtrl (note, NoteService, $state) {
   this.note = new Note(note); 
   this.data = {
     note: {
+      id: self.note.id,
       title: self.note.title,
       body: self.note.body,
       entity_id: self.note.entity_id,

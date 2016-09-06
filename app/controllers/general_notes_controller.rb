@@ -12,6 +12,15 @@ class GeneralNotesController < ApplicationController
     end
   end
 
+  def update
+    general_note = GeneralNote.find(params[:id])
+    if general_note.update(general_note_params)
+      render json: general_note, status: 200
+    else
+      render json: {status: "Failed to update note"}
+    end
+  end
+
   private
     def general_note_params
       params.require(:note).permit(:title, :body, :entity_id)

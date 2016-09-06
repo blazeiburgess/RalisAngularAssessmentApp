@@ -4,9 +4,15 @@ function NoteService($http) {
   }
 
   this.postGeneralNote = function (hash) {
-    return $http.post('/general_notes', hash).then(function(resp) { 
-      return resp
-    });
+    if (hash.id !== undefined) {
+      return $http.post('/general_notes', hash).then(function(resp) { 
+	return resp
+      });
+    } else {
+      return $http.patch('/general_notes/' + hash.note.id, hash).then(function(resp) {
+	return resp
+      });
+    }
   }
 
   this.postNote = function (hash) {
