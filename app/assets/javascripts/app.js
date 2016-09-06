@@ -164,7 +164,7 @@ angular
       controller: 'NoteCtrl as ctrl',
       resolve: {
 	note: function (NoteService, $stateParams) {
-	  return NoteService.getNote($stateParams.general_note_id);
+	  return NoteService.getNote($stateParams.general_note_id).then(function(resp) { return resp.data });
 	}
       }
     })

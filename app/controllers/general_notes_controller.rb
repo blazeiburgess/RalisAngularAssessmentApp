@@ -1,6 +1,6 @@
 class GeneralNotesController < ApplicationController
   def show
-    note = Note.find(params[:id])
+    note = GeneralNote.find(params[:id])
     render json: note, status: 200
   end
   def create

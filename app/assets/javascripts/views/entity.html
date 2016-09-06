@@ -34,7 +34,7 @@
       <div ng-repeat="gn in ctrl.entity.generalNotes | filter:gnsearch">
 	    <span class="note-title">{{ gn.title }}</span><br>
 	    <span style="opacity: 0.4;">({{ gn.created_at }})</span><br>
-	    {{ gn.body }}
+	    <span style="white-space: pre-wrap;">{{ gn.body }}</span>
 	    <small><a ui-sref="generalNotes.edit({general_note_id: {{ gn.id }} })">edit</a></small>
 	    <hr>
 	  </div>
@@ -96,7 +96,7 @@
 	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes | filter:nsearch">
 	      <span class="note-title">{{note.title}}</span> <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
-	      {{note.body}}<hr>
+	      <span style="white-space: pre-wrap;">{{note.body}}</span><hr>
 	    </div>
 	  </div>
 	  <hr>
