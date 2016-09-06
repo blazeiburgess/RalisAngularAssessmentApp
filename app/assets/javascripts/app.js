@@ -233,7 +233,7 @@ angular
       }
     })
     .state('notes.edit', {
-      url: '/entities/:entity_id/links/:note_id/edit',
+      url: '/entities/:entity_id/notes/:note_id/edit',
       templateUrl: 'views/note_form.html',
       controller: 'NoteCtrl as ctrl',
       resolve: {
