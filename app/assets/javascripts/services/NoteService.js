@@ -1,6 +1,10 @@
 function NoteService($http) {
-  this.getNote = function (id) {
-    return $http.get('/general_notes/' + id);
+  this.getNote = function (id, type) {
+    if (type === "general") {
+      return $http.get('/general_notes/' + id);
+    } else {
+      return $http.get('/notes/' + id);
+    }
   }
 
   this.postGeneralNote = function (hash) {

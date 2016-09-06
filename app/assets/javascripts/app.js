@@ -174,7 +174,7 @@ angular
       controller: 'NoteCtrl as ctrl',
       resolve: {
 	note: function (NoteService, $stateParams) {
-	  return NoteService.getNote($stateParams.general_note_id).then(function(resp) { return resp.data });
+	  return NoteService.getNote($stateParams.general_note_id, 'general').then(function(resp) { return resp.data });
 	}
       }
     })
@@ -229,6 +229,16 @@ angular
 	    entity_id: $stateParams.entity_id,
 	    subsection_id: $stateParams.subsection_id
 	  }
+	}
+      }
+    })
+    .state('notes.edit', {
+      url: '/entities/:entity_id/links/:note_id/edit',
+      templateUrl: 'views/note_form.html',
+      controller: 'NoteCtrl as ctrl',
+      resolve: {
+	note: function (NoteService, $stateParams) {
+	  return NoteService.getNote($stateParams.note_id).then(function(resp) { return resp.data });
 	}
       }
     })

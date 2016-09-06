@@ -97,7 +97,7 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes | filter:nsearch">
-	      <span class="note-title">{{note.title}}</span> (<small><a ui-sref="notes.edit({note_id: {{ note.id }} })">edit</a></small>)
+	      <span class="note-title">{{note.title}}</span> (<small><a ui-sref="notes.edit({entity_id: {{ ctrl.entity.id }}, note_id: {{ note.id }} })">edit</a></small>)
 	      <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
 	      <span style="white-space: pre-wrap;">{{note.body}}</span><hr>
 	    </div>
