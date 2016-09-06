@@ -4,9 +4,13 @@ function SubsectionService($http) {
   }
 
   this.postSubsection = function (hash) {
-    return $http.post('/subsections', hash).then(function(resp) { 
-      return resp
-    });
+    if (hash.subsection.id !== undefined) {
+      return $http.patch('/subsections/' + hash.subsection.id, hash).then(function (resp) {return resp});
+    } else {
+      return $http.post('/subsections', hash).then(function(resp) { 
+	return resp
+      });
+    }
   }
 }
 
