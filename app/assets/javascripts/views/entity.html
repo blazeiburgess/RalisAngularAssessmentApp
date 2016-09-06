@@ -32,10 +32,10 @@
 	  </div>
 	  <div class="ten columns">
       <div ng-repeat="gn in ctrl.entity.generalNotes | filter:gnsearch">
-	    <span class="note-title">{{ gn.title }}</span><br>
+	    <span class="note-title">{{ gn.title }}</span> (<small><a ui-sref="generalNotes.edit({general_note_id: {{ gn.id }} })">edit</a></small>)
+	    <br>
 	    <span style="opacity: 0.4;">({{ gn.created_at }})</span><br>
-	    <span style="white-space: pre-wrap;">{{ gn.body }}</span>
-	    <small><a ui-sref="generalNotes.edit({general_note_id: {{ gn.id }} })">edit</a></small>
+	    <span style="white-space: pre-wrap;">{{ gn.body }}</span> 
 	    <hr>
 	  </div>
 	</div>
