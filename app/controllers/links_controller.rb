@@ -1,4 +1,9 @@
 class LinksController < ApplicationController
+  def show
+    link = Link.find(params[:id])
+    render json: link, status: 200
+  end
+
   def create
     link = Link.new(link_params)
     if link.save
