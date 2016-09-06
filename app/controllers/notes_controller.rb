@@ -13,6 +13,15 @@ class NotesController < ApplicationController
     end
   end
 
+  def update
+    note = Note.find(params[:id])
+    if note.update(note_params)
+      render json: note, status: 200
+    else
+      render json: {status: "Failed ot update note"}
+    end
+  end
+
   private
     def note_params
       params.require(:note).permit(:title, :body, :subsection_id)

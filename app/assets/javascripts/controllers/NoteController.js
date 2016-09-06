@@ -1,4 +1,4 @@
-function NoteCtrl (note, NoteService, $state) { 
+function NoteCtrl (note, NoteService, $state, $stateParams) { 
   var self = this;
 
   this.note = new Note(note); 
@@ -14,7 +14,11 @@ function NoteCtrl (note, NoteService, $state) {
 
   this.postNote = function () { 
     NoteService.postNote(self.data).then(function (resp) { 
-      $state.go('entities.show',{id: self.data.note.entity_id})
+      if ($stateParams.entity_id !== undefined) {
+	$state.go('entities.show', {id: $stateParams.entity_id});
+      } else {
+	$state.go('entities.show',{id: self.data.note.entity_id});
+      }
     });
     
   }

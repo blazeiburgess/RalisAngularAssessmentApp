@@ -20,9 +20,15 @@ function NoteService($http) {
   }
 
   this.postNote = function (hash) {
-    return $http.post('/notes', hash).then(function(resp) { 
-      return resp
-    });
+    if (hash.note.id !== undefined) {
+      return $http.patch('/notes/' + hash.note.id, hash).then(function (resp) {
+	return resp;
+      });
+    } else {
+      return $http.post('/notes', hash).then(function(resp) { 
+	return resp
+      });
+    }
   }
 }
 
