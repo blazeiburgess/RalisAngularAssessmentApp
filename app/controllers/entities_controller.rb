@@ -18,6 +18,15 @@ class EntitiesController < ApplicationController
     end
   end
 
+  def update
+    entity = Entity.find(params[:id])
+    if entity.update(entity_params)
+      render json: entity, status: 200
+    else
+      render json: {status: "Failed to update entity"}
+    end
+  end
+
   private
     def entity_params
       params.require(:entity).permit(:name, :description)
