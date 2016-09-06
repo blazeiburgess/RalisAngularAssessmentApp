@@ -1,12 +1,13 @@
-function SubsectionCtrl (subsection, SubsectionService, $state) {
+function SubsectionCtrl (subsection, SubsectionService, $state, $stateParams) {
   var self = this;
-  this.subsection = new Subsection(subsection);
+  this.subsection = new Subsection(subsection); 
 
   this.data = {
     subsection: {
+      id: self.subsection.id,
       name: self.subsection.name,
       description: self.subsection.description,
-      entity_id: self.subsection.entity_id,
+      entity_id: $stateParams.entity_id,
       section_id: self.subsection.section_id
     }
   }
