@@ -1,9 +1,10 @@
 function SectionCtrl (section, SectionService, $state) {
   var self = this;
-  this.section = new Section(section);
+  this.section = new Section(section.data);
 
   this.data = {
     section: {
+      id: self.section.id,
       name: self.section.name,
       description: self.section.description,
       entity_id: self.section.entity_id

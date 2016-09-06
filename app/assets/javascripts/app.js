@@ -133,10 +133,8 @@ angular
       templateUrl: 'views/section_form.html',
       controller: 'SectionCtrl as ctrl',
       resolve: {
-	section: function ($stateParams, SectionService) {
-	  return SectionService.getSection($stateParams.id).then(function (resp) {
-	    return resp.data;
-	  });
+	section: function (SectionService, $stateParams) {
+	  return SectionService.getSection($stateParams.id)
 	}
       }
     })

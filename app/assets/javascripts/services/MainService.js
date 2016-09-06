@@ -8,7 +8,7 @@ function MainService($http) {
   }
 
   this.postEntity = function (hash) {
-    if (hash.id !== undefined) {
+    if (hash.entity.id !== undefined) {
       return $http.post('/entities', hash).then(function(resp) { 
 	return resp;
       });

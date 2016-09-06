@@ -64,10 +64,13 @@
     <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
       <div align="center">
 	<p ng-if="section.description.length > 0">{{section.description}}</p>
-	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
+	(<small><a ui-sref="sections.edit({id: {{ section.id }} })">edit</a></small>)
+	<br>
 	<input type="text" ng-model="search.name" list="subsection-datalist" placeholder="Filter by heading..." />	
 	<input type="text" ng-model="lsearch" placeholder="Filter links..." />	
 	<input type="text" ng-model="nsearch" placeholder="Filter notes..." />	
+	<br>
+	<small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
       </div>
       <hr>
       <datalist id="subsection-datalist">

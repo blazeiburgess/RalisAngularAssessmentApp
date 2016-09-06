@@ -8,7 +8,8 @@ function LinkService($http) {
   }
 
   this.postGeneralLink = function (hash) { 
-    if (hash.id !== undefined) {
+    console.log(hash)
+    if (hash.link.id === undefined) {
       return $http.post('/general_links', hash).then(function(resp) { 
 	return resp;
       });
