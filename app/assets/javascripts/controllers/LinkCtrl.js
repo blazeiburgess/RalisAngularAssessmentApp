@@ -1,4 +1,4 @@
-function LinkCtrl (link, LinkService, $state) { 
+function LinkCtrl (link, LinkService, $state, $stateParams) { 
   var self = this;
   
   this.link = new Link(link);
@@ -17,7 +17,11 @@ function LinkCtrl (link, LinkService, $state) {
 
   this.postLink = function () { 
     LinkService.postLink(self.data).then(function (resp) { 
-      $state.go('entities.show',{id: self.data.link.entity_id})
+      if ($stateParams.entity_id !== undefined) {
+	$state.go('entities.show', {id: $stateParams.entity_id})
+      } else {
+	$state.go('entities.show',{id: self.data.link.entity_id})
+      }
     });
     
   }

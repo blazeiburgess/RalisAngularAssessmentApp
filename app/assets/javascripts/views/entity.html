@@ -83,7 +83,7 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="link in subsection.links | filter:lsearch">
-	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> (<small><a ui-sref="links.edit({ link_id: {{ link.id }} })">edit</a></small>)
+	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> (<small><a ui-sref="links.edit({ entity_id: {{ctrl.entity.id }}, link_id: {{ link.id }} })">edit</a></small>)
 	      <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
 	      <br>{{ link.description }}<br ng-if="link.description.length > 0">
 	      <a href="{{link.archive}}" target="_blank">cached</a>
