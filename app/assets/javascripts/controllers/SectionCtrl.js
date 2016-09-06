@@ -1,6 +1,10 @@
 function SectionCtrl (section, SectionService, $state) {
   var self = this;
-  this.section = new Section(section.data);
+  if (section.data !== undefined) {
+    this.section = new Section(section.data);
+  } else {
+    this.section = new Section(section);
+  }
 
   this.data = {
     section: {
