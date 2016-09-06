@@ -128,6 +128,18 @@ angular
 	}
       }
     })
+    .state('sections.edit', {
+      url: '/sections/:id/edit',
+      templateUrl: 'views/section_form.html',
+      controller: 'SectionCtrl as ctrl',
+      resolve: {
+	section: function ($stateParams, SectionService) {
+	  return SectionService.getSection($stateParams.id).then(function (resp) {
+	    return resp.data;
+	  });
+	}
+      }
+    })
     .state('generalLinks', {
       abstract: true,
       url: '',
