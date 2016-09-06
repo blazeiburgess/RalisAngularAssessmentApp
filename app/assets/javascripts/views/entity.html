@@ -50,7 +50,8 @@
 	</div>
 	<div class="ten columns">
 	  <div ng-repeat="gl in ctrl.entity.generalLinks | filter:glsearch">
-	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a><br> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
+	    <a href="{{ gl.href }}" target="_blank">{{ gl.title }}</a> (<small><a ui-sref="generalLinks.edit({general_link_id: {{ gl.id }} })">edit</a></small>)
+	    <br> <span style="opacity: 0.4;">({{ gl.created_at }})</span><br>
 	    {{ gl.description }}<br ng-if="gl.description.length > 0">
 	    <a href="{{ gl.archive }}" target="_blank">cached</a>
 	    <hr>

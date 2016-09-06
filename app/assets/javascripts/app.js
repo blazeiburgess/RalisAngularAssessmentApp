@@ -139,6 +139,16 @@ angular
 	}
       }
     })
+    .state('generalLinks.edit', {
+      url: '/general_links/:general_link_id/edit',
+      templateUrl: 'views/general_link_form.html',
+      controller: 'LinkCtrl as ctrl',
+      resolve: {
+	note: function (LinkService, $stateParams) {
+	  return LinkService.getLink($stateParams.general_link_id).then(function(resp) { return resp.data });
+	}
+      }
+    })
     .state('generalNotes', {
       abstract: true,
       url: '',
