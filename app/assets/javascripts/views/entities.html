@@ -21,7 +21,8 @@
   <li ng-repeat="entity in main.entities | filter:search">
     <div class="row">
       <div class="three columns" align="center">
-	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{ entity.name }}</a></h5> 
+	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{ entity.name }}</a></h5> 	
+	(<small><a ui-sref="entities.edit({id: {{ entity.id }} })">edit</a></small>)
       </div>
       <div class="nine columns">
 	// {{ entity.description }}<br> 

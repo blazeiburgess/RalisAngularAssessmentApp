@@ -1,6 +1,8 @@
 <h4 align="center">{{ ctrl.entity.name }}</h4>
 <div align="center">
   {{ ctrl.entity.description }}
+  <br>
+  (<small><a ui-sref="entities.edit({id: {{ ctrl.entity.id }} })">edit</a></small>)
   <div ng-if="ctrl.entity.categories.length > 0">|| <div style="display: inline;" ng-repeat="cat in ctrl.entity.categories"><a ui-sref="category.show({id: {{ cat.id }} })"><small>{{cat.name}}</small></a> || </div></div>
   <small><a ui-sref="category.add({entity_id: {{ ctrl.entity.id }} })">+</a></small>
 </div>
