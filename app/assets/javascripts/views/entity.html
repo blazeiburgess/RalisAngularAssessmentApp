@@ -83,7 +83,8 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="link in subsection.links | filter:lsearch">
-	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
+	      <a href="{{link.href}}" target="_blank">{{link.title}}</a> (<small><a ui-sref="notes.edit({ link_id: {{ link.id }} })">edit</a></small>)
+	      <br><span style="opacity: 0.4; font-style: italic;">({{link.created_at}})</span>
 	      <br>{{ link.description }}<br ng-if="link.description.length > 0">
 	      <a href="{{link.archive}}" target="_blank">cached</a>
 	      <hr>
@@ -96,7 +97,8 @@
 	  </div>
 	  <div class="ten columns">
 	    <div ng-repeat="note in subsection.notes | filter:nsearch">
-	      <span class="note-title">{{note.title}}</span> <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
+	      <span class="note-title">{{note.title}}</span> (<small><a ui-sref="notes.edit({note_id: {{ note.id }} })">edit</a></small>)
+	      <br><span style="opacity: 0.4; font-style: italic;">({{note.created_at}})</span><br>
 	      <span style="white-space: pre-wrap;">{{note.body}}</span><hr>
 	    </div>
 	  </div>
