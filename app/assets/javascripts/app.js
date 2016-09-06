@@ -201,7 +201,7 @@ angular
       }
     })
     .state('links.edit', {
-      url: '/links/:link_id/edit',
+      url: '/entities/:entity_id/links/:link_id/edit',
       templateUrl: 'views/link_form.html',
       controller: 'LinkCtrl as ctrl',
       resolve: {
