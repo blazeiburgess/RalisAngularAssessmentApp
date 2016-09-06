@@ -145,7 +145,7 @@ angular
       controller: 'LinkCtrl as ctrl',
       resolve: {
 	link: function (LinkService, $stateParams) {
-	  return LinkService.getLink($stateParams.general_link_id).then(function(resp) { return resp.data });
+	  return LinkService.getLink($stateParams.general_link_id, 'general').then(function(resp) { return resp.data });
 	}
       }
     })
@@ -197,6 +197,16 @@ angular
 	    entity_id: $stateParams.entity_id,
 	    subsection_id: $stateParams.subsection_id
 	  }
+	}
+      }
+    })
+    .state('links.edit', {
+      url: '/links/:link_id/edit',
+      templateUrl: 'views/link_form.html',
+      controller: 'LinkCtrl as ctrl',
+      resolve: {
+	link: function (LinkService, $stateParams) {
+	  return LinkService.getLink($stateParams.link_id).then(function(resp) { return resp.data });
 	}
       }
     })

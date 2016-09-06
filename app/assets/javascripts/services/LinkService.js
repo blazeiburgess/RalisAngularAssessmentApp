@@ -1,6 +1,10 @@
 function LinkService($http) {
-  this.getLink = function (id) {
-    return $http.get('/general_links/' + id);
+  this.getLink = function (id, type) {
+    if (type === "general") {
+      return $http.get('/general_links/' + id);
+    } else {
+      return $http.get('/links/' + id);
+    }
   }
 
   this.postGeneralLink = function (hash) { 
