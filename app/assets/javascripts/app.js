@@ -282,5 +282,14 @@ angular
 	}
       }
     })
+    .state('subsections.edit', {
+      url: '/entities/:entity_id/subsections/:id/edit',
+      controller: 'SubsectionCtrl as ctrl',
+      resolve: {
+	subsection: function (SubsectionService, $stateParams) {
+	  return SubsectionService.getSubsection($stateParams.id).then(function (resp) { return resp.data })
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
