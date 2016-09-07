@@ -3,7 +3,7 @@
   <small style="opacity: 0.4;">({{ ctrl.categories.length}} categories)</small><br>
   <hr>
   <input type="text" ng-model="search.name" list="category-datalist" placeholder="Filter..." /><br>
-  <input type="text" ng-model="search.entitiesCount" list="entities-count-datalist" placeholder="Number of entries..." /><br>
+  <input type="number" ng-model="search.entitiesCount" list="entities-count-datalist" placeholder="Number of entries..." /><br>
   <form ng-submit="ctrl.postCategories()" class="hidden">
     <hr>
     <h3 align="center">New Category</h3> 
