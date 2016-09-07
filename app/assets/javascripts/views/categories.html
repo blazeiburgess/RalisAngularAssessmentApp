@@ -1,10 +1,12 @@
 <div align="center">
   <h3>Categories</h3>
+  <small style="opacity: 0.4;">({{ ctrl.categories.length}} categories)</small><br>
+  <hr>
   <input type="text" ng-model="search.name" list="category-datalist" placeholder="Filter..." /><br>
   <input type="text" ng-model="search.entitiesCount" list="entities-count-datalist" placeholder="Number of entries..." /><br>
   <form ng-submit="ctrl.postCategories()" class="hidden">
     <hr>
-    <label>Category Name</label>
+    <h3 align="center">New Category</h3> 
     <input type="text" ng-model="ctrl.data.category.name" name="name" placeholder="Category name..." /><br>
     <input type="submit" value="submit" /><br>
     <small><a ng-click="ctrl.hideForm()" style="cursor: pointer;">Close</a></small>
@@ -22,11 +24,12 @@
     <option value="{{ category.entitiesCount }}">
   </div>
 </datalist>
+<hr>
 <li ng-repeat="category in ctrl.categories |filter:search">
   <a ui-sref="category.show({id: {{ category.id }} })"><strong>{{ category.name }}</strong></a> <span style="opacity: 0.4;">({{ category.entitiesCount }})</span>
 </li>
 <script type="text/javascript">
-  function addForm () {
-    $('.form').append('<input type="text" name="categories[]" /><br>');
-  }
+function addForm () {
+  $('.form').append('<input type="text" name="categories[]" /><br>');
+}
 </script>

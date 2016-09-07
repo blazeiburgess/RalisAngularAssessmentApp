@@ -1,4 +1,4 @@
-<h3>New Subsection</h3>
+<h3>{{ ctrl.data.subsection.id !== undefined ? 'Edit' : 'New' }} Subsection</h3>
   <div ng-messages="SubsectionForm.name.$error">
     <div class="message-alert" ng-message="required" ng-if="SubsectionForm.name.$touched" align="center">A name is required for submission</div><br>
   </div>

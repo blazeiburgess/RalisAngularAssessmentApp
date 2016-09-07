@@ -1,4 +1,4 @@
-<h3>New Entity</h3>
+<h3>{{ ctrl.data.entity.id !== undefined ? 'Edit' : 'New' }} Entity</h3>
   <div ng-messages="EntityForm.name.$error">
     <div class="message-alert" ng-message="required" ng-if="EntityForm.name.$touched" align="center">A name is required for submission</div><br>
   </div>

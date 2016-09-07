@@ -1,4 +1,4 @@
-<h3>New Link</h3>
+<h3>{{ ctrl.data.link.id !== undefined ? 'Edit' : 'New' }} Link</h3>
   <div ng-messages="LinkForm.title.$error">
     <div class="message-alert" ng-message="required" ng-if="LinkForm.title.$touched" align="center">A title is required for submission</div><br>
   </div> 

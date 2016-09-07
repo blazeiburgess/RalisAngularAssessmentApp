@@ -1,4 +1,4 @@
-<h3>New Note</h3>
+<h3>{{ ctrl.data.note.id !== undefined ? 'Edit' : 'New' }} Note</h3>
   <div ng-messages="NoteForm.title.$error">
     <div class="message-alert" ng-message="required" ng-if="NoteForm.title.$touched" align="center">A title is required for submission</div><br>
   </div>
