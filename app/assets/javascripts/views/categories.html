@@ -1,6 +1,7 @@
 <div align="center">
   <h3>Categories</h3>
   <input type="text" ng-model="search.name" list="category-datalist" placeholder="Filter..." /><br>
+  <input type="text" ng-model="search.entitiesCount" list="entities-count-datalist" placeholder="Number of entries..." /><br>
   <form ng-submit="ctrl.postCategories()" class="hidden">
     <hr>
     <label>Category Name</label>
@@ -14,6 +15,11 @@
 <datalist id="category-datalist">
   <div ng-repeat="category in ctrl.categories">
     <option value="{{ category.name }}">
+  </div>
+</datalist>
+<datalist id="entities-count-datalist">
+  <div ng-repeat="category in ctrl.categories | unique: 'entitiesCount' | orderBy: 'entitiesCount' ">
+    <option value="{{ category.entitiesCount }}">
   </div>
 </datalist>
 <li ng-repeat="category in ctrl.categories |filter:search">

@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ngMessages', 'ui.router', 'templates', 'ng-rails-csrf'])
+  .module('app', ['ngMessages', 'ui.router', 'angular.filter', 'templates', 'ng-rails-csrf'])
   // tab directive credit to Anita Salunke:
   //   http://codepen.io/anita_salunke
   .directive('tabDynamic', function(){
