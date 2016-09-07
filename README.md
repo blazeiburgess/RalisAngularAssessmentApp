@@ -1,24 +1,22 @@
-# README
+# Rails Assessment Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is meant to be a flexible system to store notes and links on any topic whatever, collate that data into an easily searchable format, and be able to handle a wide variety of datatypes in a natural way.
 
-Things you may want to cover:
+It is an AngularJS application with a Ruby on Rails backend.
 
-* Ruby version
+Required Environment / Minimum Setup
+----------------------------------------------
 
-* System dependencies
+This was created with Ruby 2.3.0, Rails 5.0.0.1, and AngularJS 1.5
 
-* Configuration
+Running this application would require a machine/browser capable of handling these frameworks.
 
-* Database creation
+Accessing the Site
+----------------------------------------------
 
-* Database initialization
+To see it work you need to clone the repo, cd into the directory, run `rake db:migrate`, and then `rails s`. The site should be listening on your localhost at some port rails provides you (likely 3000).
 
-* How to run the test suite
+Known Issues 
+----------------------------------------------
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Searching, though fast, cannot convert between different encodings. So the Cyrillic alphabet reading of "Модест", for instance, cannot be accessed by typing in the latin transliteration "Modest". Latinize libraries have so far not helped.
