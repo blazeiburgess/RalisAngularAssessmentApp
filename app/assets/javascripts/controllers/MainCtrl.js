@@ -11,7 +11,7 @@ function MainCtrl (entities, MainService, $state) {
   this.destroyEntity = function(id) {
     if (confirm("This will delete this entry. Do you want to continue?")) {
       MainService.destroyEntity(id).then(function (resp) {
-	$state.go('entities.index');
+	$state.go($state.current, {}, {reload: true});
       })
     } 
     return 'called';

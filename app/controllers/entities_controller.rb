@@ -27,6 +27,12 @@ class EntitiesController < ApplicationController
     end
   end
 
+  def destroy
+    entity = Entity.find(params[:id])
+    entity.destroy
+    render json: {result: "Entity destroyed"}, status: 200
+  end
+
   private
     def entity_params
       params.require(:entity).permit(:name, :description)
