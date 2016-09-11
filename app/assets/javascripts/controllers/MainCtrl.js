@@ -7,6 +7,15 @@ function MainCtrl (entities) {
   angular.forEach(entities, function(entitiesResp) {
     self.entities.push(new Entity(entitiesResp))
   });
+
+  this.destroyEntity = function(id) {
+    if (confirm("This will delete this entry. Do you want to continue?")) {
+      MainService.deleteEntity(id).then(function (resp) {
+	$state.go('entities.index');
+      })
+    } 
+    return 'called';
+  }
 }
 
 angular

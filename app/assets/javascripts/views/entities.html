@@ -23,6 +23,7 @@
     <div class="row">
       <div class="three columns" align="center">
 	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{ entity.name }}</a></h5> 	
+	(<small style="color: red;" ><a href="" ng-click="main.destroyEntity(entity.id)">X</a></small>)
 	(<small><a ui-sref="entities.edit({id: {{ entity.id }} })">edit</a></small>)
       </div>
       <div class="nine columns">
