@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :entity_categories
+  has_many :entity_categories, dependent: :destroy
   has_many :entities, through: :entity_categories
   before_save :downcase_name
   validates :name, uniqueness: { case_sensitie: false }

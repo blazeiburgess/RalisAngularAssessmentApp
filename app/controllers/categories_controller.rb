@@ -18,6 +18,12 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    category = Category.find(params[:id])
+    category.destroy
+    render json: {result: "Category destroyed"}, status: 200
+  end
+
   private
     def category_params
       params.require(:category).permit(:name)
