@@ -47,6 +47,14 @@ function CategoryCtrl (categories, CategoryService, $state, $stateParams) {
     $state.go('entities.index');
   }
 
+  this.destroyCategory = function (id) {
+    if (confirm("This will delete this entry. Do you want to continue?")) {
+      CategoryService.destroyCategory(id).then(function (resp) {
+	$state.go($state.current, {}, {reload: true});
+      })
+    }
+  }
+
   $('.hidden').hide()
 }
 

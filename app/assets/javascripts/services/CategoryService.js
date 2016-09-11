@@ -14,6 +14,10 @@ function CategoryService($http) {
   this.postEntityCategory = function (hash) {
     return $http.post('/entity_categories', hash);
   }
+
+  this.destroyCategory = function(id) {
+    return $http.delete('/categories/' + id)
+  }
 }
 
 angular

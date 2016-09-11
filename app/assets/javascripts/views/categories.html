@@ -27,7 +27,8 @@
 </datalist>
 <hr>
 <li ng-repeat="category in filtered = (ctrl.categories |filter:search)">
-  <a ui-sref="category.show({id: {{ category.id }} })"><strong>{{ category.name }}</strong></a> <span style="opacity: 0.4;">({{ category.entitiesCount }})</span>
+  <a ui-sref="category.show({id: {{ category.id }} })"><strong>{{ category.name }}</strong></a> <span style="opacity: 0.4;">({{ category.entitiesCount }})
+    &nbsp;&nbsp;&nbsp;(<small><a style="color: red;" href="" ng-click="ctrl.destroyCategory(category.id)">X</a></small>)</span>
 </li>
 <script type="text/javascript">
 function addForm () {
