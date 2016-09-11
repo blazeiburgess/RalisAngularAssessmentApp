@@ -18,6 +18,10 @@ function MainService($http) {
       });
     }
   }
+
+  this.destroyEntity = function (id) {
+    return $http.delete('/entities/' + id);
+  }
 }
 
 angular

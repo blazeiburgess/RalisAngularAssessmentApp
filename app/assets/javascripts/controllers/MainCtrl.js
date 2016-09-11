@@ -1,4 +1,4 @@
-function MainCtrl (entities) {
+function MainCtrl (entities, MainService, $state) {
   var self = this;
   // var entity = "test";
 
@@ -10,7 +10,7 @@ function MainCtrl (entities) {
 
   this.destroyEntity = function(id) {
     if (confirm("This will delete this entry. Do you want to continue?")) {
-      MainService.deleteEntity(id).then(function (resp) {
+      MainService.destroyEntity(id).then(function (resp) {
 	$state.go('entities.index');
       })
     } 
