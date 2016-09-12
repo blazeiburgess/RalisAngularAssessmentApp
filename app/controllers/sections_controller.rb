@@ -27,6 +27,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy
+    section = Section.find(params[:id])
+    section.destroy
+    render json: {result: "Section destroyed"}, status: 200
+  end
+
   private
     def section_params
       params.require(:section).permit(:name, :description, :entity_id)
