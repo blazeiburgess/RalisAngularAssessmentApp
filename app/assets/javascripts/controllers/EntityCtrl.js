@@ -1,4 +1,4 @@
-function EntityCtrl (entity, MainService, $state) {
+function EntityCtrl (entity, MainService, SectionService, $state) {
   this.entity = new Entity(entity);
   this.data = {
     entity: {
@@ -15,6 +15,14 @@ function EntityCtrl (entity, MainService, $state) {
       })
     } 
     return 'called';
+  }
+
+  this.destroySection = function(id) {
+    if (confirm("This will destroy this section and all information within it. Do you want to continue?")) {
+      SectionService.destroySection(id).then(function (resp) {
+	$state.reload();
+      })
+    }
   }
 }
 

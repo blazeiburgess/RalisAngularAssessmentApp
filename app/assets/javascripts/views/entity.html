@@ -15,12 +15,13 @@
   <ul id="tabs">
     <li><a href="#0" tab-dynamic>Main</a></li>  
     <li ng-repeat="section in ctrl.entity.sections">
-      <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a>
+      <a href="#{{ section.id }}" tab-dynamic ng-class="{'current':$first}">{{section.name}}</a> 
     </li>
   </ul>
   <div class="tab-content-wrapper">
     <div class="tab-content ng-scope" id="0" class="current active">
       <div align="center">
+      
 	<small><a ui-sref="generalLinks.new({entity_id: {{ ctrl.entity.id }} })">New Link</a></small> | <small><a ui-sref="generalNotes.new({entity_id: {{ ctrl.entity.id }} })">New Note</a></small>
 	<hr>
 	<input type="text" ng-model="glsearch" placeholder="Filter links..." />	
@@ -64,6 +65,7 @@
   </div>
   <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
     <div align="center">
+      Section options:<br> (<small><a style="color: red;" href="" ng-click="ctrl.destroySection(section.id)">X</a></small>)
       <p ng-if="section.description.length > 0">{{section.description}}</p>
       (<small><a ui-sref="sections.edit({id: {{ section.id }} })">edit</a></small>)
       <br>

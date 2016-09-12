@@ -12,6 +12,10 @@ function SectionService($http) {
       });
     }
   }
+
+  this.destroySection = function (id) {
+    return $http.delete('/sections/' + id);
+  }
 }
 
 angular
