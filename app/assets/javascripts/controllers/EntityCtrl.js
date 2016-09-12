@@ -1,4 +1,4 @@
-function EntityCtrl (entity) {
+function EntityCtrl (entity, MainService, $state) {
   this.entity = new Entity(entity);
   this.data = {
     entity: {
@@ -6,6 +6,15 @@ function EntityCtrl (entity) {
       name: entity.name,
       description: entity.description
     }
+  }
+
+  this.destroyEntity = function(id) {
+    if (confirm("This will delete this entry. Do you want to continue?")) {
+      MainService.destroyEntity(id).then(function (resp) {
+	$state.go('entities.index')
+      })
+    } 
+    return 'called';
   }
 }
 
