@@ -64,9 +64,9 @@
     </div>
   </div>
   <div class="tab-content" ng-repeat="section in ctrl.entity.sections" id="{{section.id}}" ng-class="{'active':$first}">
-    <div align="center">
-      Section options:<br> (<small><a style="color: red;" href="" ng-click="ctrl.destroySection(section.id)">X</a></small>)
+    <div align="center"> 
       <p ng-if="section.description.length > 0">{{section.description}}</p>
+      <span style="opacity: 0.6;">Section options:</span><br> (<small><a style="color: red;" href="" ng-click="ctrl.destroySection(section.id)">X</a></small>)
       (<small><a ui-sref="sections.edit({id: {{ section.id }} })">edit</a></small>)
       <br>
       <input type="text" ng-model="search" list="subsection-datalist" placeholder="Filter by heading..." />	
