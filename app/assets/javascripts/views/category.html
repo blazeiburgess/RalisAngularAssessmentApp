@@ -6,8 +6,12 @@
   <!-- <input type="text" ng&#45;model="search.categories.name" list="category&#45;datalist" placeholder="Search by tag..." /> -->
   <hr>
 </div>
-<li ng-repeat="entity in ctrl.category.entities | filter:search">
-  <!-- <a href="/#/entities/{{ entity.id }}">{{ entity.name }}</a> -->
+<datalist id="name-datalist">
+  <option ng-repeat="entity in ctrl.category.entities" value="{{ entity.name }}">
+</datalist>
+<ul>
+  <li ng-repeat="entity in ctrl.category.entities | filter:search">
+    <!-- <a href="/#/entities/{{ entity.id }}">{{ entity.name }}</a> -->
     <div class="row">
       <div class="three columns" align="center">
 	<h5><a href="/#/entities/{{ entity.id }}">{{entity.name }}</a></h5> 
@@ -17,5 +21,5 @@
       </div>
     </div>
     <hr>
-</li>
-
+  </li>
+</ul>

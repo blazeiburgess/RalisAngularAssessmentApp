@@ -36,6 +36,8 @@ function CategoryCtrl (categories, CategoryService, $state, $stateParams) {
       self.categories.push(new Category(resp.data))
     }); 
     $state.go('category.index');
+    // $state.reload();
+    // $state.go($state.current, {}, {reload: true});
     // alert(self.categories);
     $('input[type="text"]').val('');
     $('input[type="text"]').text('');
