@@ -1,0 +1,5 @@
+class AddUpvotesToEntity < ActiveRecord::Migration[5.0]
+  def change
+    add_column :entities, :upvotes, :integer, :default => 0
+  end
+end

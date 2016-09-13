@@ -16,6 +16,18 @@ function MainCtrl (entities, MainService, $state) {
     } 
     return 'called';
   }
+
+  this.upvote = function (id) { 
+    MainService.upvote(id).then(function (resp) {
+      $state.go($state.current, {}, {reload: true});
+    })
+  }
+
+  this.downvote = function (id) {
+    MainService.downvote(id).then(function (resp) {
+      $state.go($state.current, {}, {reload: true});
+    })
+  }
 }
 
 angular

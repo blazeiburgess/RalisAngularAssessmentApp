@@ -6,6 +6,7 @@
   <input type="text" ng-model="search.name" list="name-datalist" placeholder="Search by name..." />
   <input type="text" ng-model="search.description" placeholder="Search by description..." />
   <input type="text" ng-model="search.categories.name" list="category-datalist" placeholder="Search by tag..." />
+  <input type="text" ng-model="search.upvotes" list="upvotes-datalist" placeholder="Search by upvotes..." />
   <hr>
 </div>
 <datalist id="name-datalist">
@@ -18,11 +19,19 @@
     <option value="{{ category.name }}">
   </div>
 </datalist>
+<datalist id="upvotes-datalist">
+  <div ng-repeat="entity in main.entities | unique: 'upvotes' | orderBy: 'upvotes' ">
+    <option value="{{ entity.upvote }}">
+  </div>
+</datalist>
 <div>
   <li ng-repeat="entity in filtered = (main.entities | filter:search)">
     <div class="row">
       <div class="three columns" align="center">
 	<h5><a ui-sref="entities.show({id: {{ entity.id }} })">{{ entity.name }}</a></h5> 	
+	<a href="" ng-click="main.upvote(entity.id)">↑</a> {{ entity.upvotes }}
+	<a href="" ng-click="main.downvote(entity.id)">↓</a><br>
+	
 	(<small><a style="color: red;" href="" ng-click="main.destroyEntity(entity.id)">X</a></small>)
 	(<small><a ui-sref="entities.edit({id: {{ entity.id }} })">edit</a></small>)
       </div>

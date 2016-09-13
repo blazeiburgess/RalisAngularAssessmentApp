@@ -22,6 +22,14 @@ function MainService($http) {
   this.destroyEntity = function (id) {
     return $http.delete('/entities/' + id);
   }
+
+  this.upvote = function (id) {
+    return $http.post('/entities/' + id + "/upvote");
+  }
+
+  this.downvote = function (id) {
+    return $http.post('/entities/' + id + '/downvote');
+  }
 }
 
 angular

@@ -33,6 +33,20 @@ class EntitiesController < ApplicationController
     render json: {result: "Entity destroyed"}, status: 200
   end
 
+  def upvote
+    entity = Entity.find(params[:id])
+    entity.upvotes += 1
+    entity.save
+    render json: entity
+  end
+
+  def downvote
+    entity = Entity.find(params[:id])
+    entity.upvotes -= 1
+    entity.save
+    render json: entity
+  end
+
   private
     def entity_params
       params.require(:entity).permit(:name, :description)
