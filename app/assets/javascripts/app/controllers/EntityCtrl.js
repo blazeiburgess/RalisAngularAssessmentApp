@@ -24,6 +24,18 @@ function EntityCtrl (entity, MainService, SectionService, $state) {
       })
     }
   }
+
+  this.upvote = function (id) {  
+    MainService.upvote(id).then(function (resp) {
+      $state.go($state.current, {}, {reload: true});
+    })
+  }
+
+  this.downvote = function (id) {
+    MainService.downvote(id).then(function (resp) {
+      $state.go($state.current, {}, {reload: true});
+    })
+  }
 }
 
 angular

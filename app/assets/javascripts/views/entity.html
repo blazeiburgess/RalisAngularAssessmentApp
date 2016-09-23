@@ -6,6 +6,9 @@
   (<small><a ui-sref="entities.edit({id: {{ ctrl.entity.id }} })">edit</a></small>)
   <div ng-if="ctrl.entity.categories.length > 0">|| <div style="display: inline;" ng-repeat="cat in ctrl.entity.categories"><a ui-sref="category.show({id: {{ cat.id }} })"><small>{{cat.name}}</small></a> || </div></div>
   <small><a ui-sref="category.add({entity_id: {{ ctrl.entity.id }} })">+</a></small>
+  <br>
+	<a href="" ng-click="ctrl.upvote(ctrl.entity.id)">↑</a> {{ ctrl.entity.upvotes }}
+	<a href="" ng-click="ctr.downvote(ctrl.entity.id)">↓</a><br>
 </div>
 <hr>
 <div class="dynamic-tab-container">
