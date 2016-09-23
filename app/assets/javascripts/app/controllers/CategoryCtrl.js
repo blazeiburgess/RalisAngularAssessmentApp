@@ -46,13 +46,15 @@ function CategoryCtrl (categories, CategoryService, $state, $stateParams) {
 
   this.postEntityCategory = function () {
     CategoryService.postEntityCategory(self.entity_cat_data)
-    $state.go('entities.index');
+    // $state.go('entities.index');
+    // $state.go($state.current, {}, {reload: true}); 
+    $state.go('entities.show',{id: $stateParams.entity_id})
   }
 
   this.destroyCategory = function (id) {
     if (confirm("This will delete this entry. Do you want to continue?")) {
       CategoryService.destroyCategory(id).then(function (resp) {
-	$state.go($state.current, {}, {reload: true});
+	    $state.go($state.current, {}, {reload: true});
       })
     }
   }

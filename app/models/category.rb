@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   validates :name, uniqueness: { case_sensitie: false }
 
   def cats
-    entities
+    entities.sort_by(&:name)
   end
 
   def downcase_name
