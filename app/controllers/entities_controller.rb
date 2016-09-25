@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   def index
-    @entities = Entity.all.sort_by {|entity| entity.name.downcase}
+    @entities = Entity.last(50).sort_by {|entity| entity.name.downcase}
     render json: @entities
   end
 
