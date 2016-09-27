@@ -72,14 +72,14 @@
       <span style="opacity: 0.6;">Section options:</span><br> (<small><a style="color: red;" href="" ng-click="ctrl.destroySection(section.id)">X</a></small>)
       (<small><a ui-sref="sections.edit({id: {{ section.id }} })">edit</a></small>)
       <br>
-      <input type="text" ng-model="search" list="subsection-datalist" placeholder="Filter by heading..." />	
+      <input type="text" ng-model="search" list="subsection-datalist-{{section.id}}" placeholder="Filter by heading..." />	
       <input type="text" ng-model="lsearch" placeholder="Filter links..." />	
       <input type="text" ng-model="nsearch" placeholder="Filter notes..." />	
       <br>
       <small><a ui-sref="subsections.new({section_id: {{ section.id }}, entity_id: {{ ctrl.entity.id }} })">New Subsection</a></small><br>
     </div>
     <hr>
-    <datalist id="subsection-datalist">
+    <datalist id="subsection-datalist-{{section.id}}">
       <option ng-repeat="subsection in section.subsections" value="{{ subsection.name }}">
     </datalist>
     <li ng-repeat="subsection in section.subsections |filter:search ">
