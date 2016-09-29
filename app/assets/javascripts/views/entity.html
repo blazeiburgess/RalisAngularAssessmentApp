@@ -80,7 +80,8 @@
     </div>
     <hr>
     <datalist id="subsection-datalist-{{section.id}}">
-      <option ng-repeat="subsection in section.subsections" value="{{ subsection.name }}">
+      <option ng-repeat="subsection in section.subsections | orderBy:
+      'name'" value="{{ subsection.name }}">
     </datalist>
     <li ng-repeat="subsection in section.subsections |filter:search ">
       <div align="center">
