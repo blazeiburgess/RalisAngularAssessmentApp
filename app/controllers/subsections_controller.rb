@@ -9,6 +9,11 @@ class SubsectionsController < ApplicationController
     render json: subsection
   end
 
+  def recent
+    subsections = Subsection.last(50)
+    render json: subsections
+  end
+
   def create
     subsection = Subsection.new(subsection_params)
     if subsection.save

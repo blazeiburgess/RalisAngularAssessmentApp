@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :notes, only: [:show, :create, :update]
   get '/recent-notes', to: 'notes#last50'
   resources :subsections, only: [:show, :create, :update]
+  get '/recent/subsections', to: 'subsections#recent'
   resources :entity_categories, only: [:create, :update]
 end
