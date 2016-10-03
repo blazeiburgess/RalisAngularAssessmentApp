@@ -4,6 +4,11 @@ class NotesController < ApplicationController
     render json: note, status: 200
   end
 
+  def last50
+    notes = Note.last(50)
+    render json: notes, status: 200
+  end
+
   def create
     note = Note.new(note_params)
     if note.save
