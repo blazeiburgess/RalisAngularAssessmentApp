@@ -1,7 +1,7 @@
 class EntitiesController < ApplicationController
   def index
     # @entities = Entity.last(50).sort_by {|entity| entity.name.downcase} + Entity.all.select {|e| e.categories.count == 0}
-    @entities = Entity.all.sort_by {|e| e.name.downcase}
+    @entities = Entity.last(2000).sort_by {|e| e.name.downcase}
     render json: @entities, each_serializer: SimpleEntitySerializer
   end
 

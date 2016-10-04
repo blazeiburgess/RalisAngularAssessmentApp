@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   def index
     categories = Category.all.sort_by(&:name)
     render json: categories
+    # render json: categories, each_serializer: SimpleCategorySerializer
   end
 
   def show

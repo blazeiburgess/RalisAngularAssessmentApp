@@ -11,4 +11,8 @@ class Category < ApplicationRecord
   def downcase_name
     self.name = self.name.downcase
   end
+
+  def ent_count
+    entities.pluck(:name)
+  end
 end
