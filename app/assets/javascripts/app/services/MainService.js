@@ -3,6 +3,10 @@ function MainService($http) {
     return $http.get('/entities');
   }
 
+  this.getSearch = function(query) {
+    return $http.get('/entities-search/' + query)
+  }
+
   this.getEntity = function (id) {
     return $http.get('/entities/' + id);
   }
