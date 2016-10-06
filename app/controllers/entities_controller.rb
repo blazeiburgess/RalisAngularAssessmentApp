@@ -9,7 +9,11 @@ class EntitiesController < ApplicationController
   def search
     entities = []
     params[:entity].split(/-/).each do |search_term|
-      entities += Entity.all.select {|ent| ent.name.downcase.match(/#{search_term.downcase}/) || ent.description.downcase.match(/#{search_term.downcase}/)  rescue false}.sort_by {|ent| ent.name.downcase}
+      if entities.count == 0
+	entities += Entity.all.select {|ent| ent.name.downcase.match(/#{search_term.downcase}/) || ent.description.downcase.match(/#{search_term.downcase}/)  rescue false}.sort_by {|ent| ent.name.downcase}
+      else
+	entities = entities & Entity.all.select {|ent| ent.name.downcase.match(/#{search_term.downcase}/) || ent.description.downcase.match(/#{search_term.downcase}/)  rescue false}.sort_by {|ent| ent.name.downcase}
+      end
       # entities = Entity.all.select {|ent| ent.name.downcase.match(/#{params[:entity].downcase}/) || ent.description.downcase.match(/#{params[:entity].downcase}/)  || ent.categories.pluck(:name).any? {|cat| cat.match(/#{params[:entity].downcase}/) } rescue false}
     end
     render json: entities

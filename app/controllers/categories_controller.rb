@@ -13,7 +13,11 @@ class CategoriesController < ApplicationController
   def search
     entities = []
     params[:search_terms].split(/-/).each do |search_term|
-      entities += Category.all.select {|cat| cat.name.downcase.match(/#{search_term.downcase}/) }.map(&:entities).flatten.uniq.sort_by {|ent| ent.name.downcase }
+      if entities.count == 0
+	entities += Category.all.select {|cat| cat.name.downcase.match(/#{search_term.downcase}/) }.map(&:entities).flatten.uniq.sort_by {|ent| ent.name.downcase }
+      else
+	entities = entities & Category.all.select {|cat| cat.name.downcase.match(/#{search_term.downcase}/) }.map(&:entities).flatten.uniq.sort_by {|ent| ent.name.downcase }
+      end
     end
     render json: entities
   end
