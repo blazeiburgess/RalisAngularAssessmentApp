@@ -9,6 +9,14 @@ class SubsectionsController < ApplicationController
     render json: subsection
   end
 
+  def search
+    subsections = []
+    params[:search_terms].split(/-/).each do |search_term|
+      subsections += Subsection.all.select {|nt| nt.name.downcase.match(/#{search_term.downcase}/) || nt.description.downcase.match(/#{search_term.downcase}/)  rescue false}
+    end
+    render json: subsections
+  end
+
   def recent
     subsections = Subsection.last(50)
     render json: subsections

@@ -9,6 +9,14 @@ class NotesController < ApplicationController
     render json: notes, status: 200
   end
 
+  def search
+    notes = []
+    params[:search_terms].split(/-/).each do |search_term|
+      notes += Note.all.select {|nt| nt.title.downcase.match(/#{search_term.downcase}/) || nt.body.downcase.match(/#{search_term.downcase}/)  rescue false}
+    end
+    render json: notes
+  end
+
   def create
     note = Note.new(note_params)
     if note.save
