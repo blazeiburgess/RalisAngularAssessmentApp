@@ -1,8 +1,17 @@
 class EntitiesController < ApplicationController
   def index
     # @entities = Entity.last(50).sort_by {|entity| entity.name.downcase} + Entity.all.select {|e| e.categories.count == 0}
-    @entities = (Entity.last(2000) + Entity.select {|ent| ent.categories.count == 0}).uniq.sort_by {|e| e.name.downcase}
+    @entities = (Entity.last(3000) + Entity.select {|ent| ent.categories.count == 0}).uniq.sort_by {|e| e.name.downcase}
     render json: @entities, each_serializer: SimpleEntitySerializer
+  end
+
+  def search
+    entities = []
+    params[:entity].split(/-/).each do |search_term|
+      entities += Entity.all.select {|ent| ent.name.downcase.match(/#{search_term.downcase}/) || ent.description.downcase.match(/#{search_term.downcase}/)  rescue false}
+      # entities = Entity.all.select {|ent| ent.name.downcase.match(/#{params[:entity].downcase}/) || ent.description.downcase.match(/#{params[:entity].downcase}/)  || ent.categories.pluck(:name).any? {|cat| cat.match(/#{params[:entity].downcase}/) } rescue false}
+    end
+    render json: entities
   end
 
   def show

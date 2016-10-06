@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :entities, only: [:show, :index, :create, :update, :destroy]
   post '/entities/:id/upvote', to: 'entities#upvote', as: 'upvotes'
   post '/entities/:id/downvote', to: 'entities#downvote'
-  get '/entities-search', to: 'entities#search'
+  get '/entities-search/:entity', to: 'entities#search'
   resources :sections
   resources :categories, only: [:show, :index, :create, :update, :destroy]
   resources :general_links, only: [:show, :create, :update]
