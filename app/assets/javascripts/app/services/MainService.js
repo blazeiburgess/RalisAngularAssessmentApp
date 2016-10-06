@@ -7,6 +7,10 @@ function MainService($http) {
     return $http.get('/entities-search/' + query)
   }
 
+  this.getByCats = function(query) {
+    return $http.get('/categories-search/' + query)
+  }
+
   this.getEntity = function (id) {
     return $http.get('/entities/' + id);
   }

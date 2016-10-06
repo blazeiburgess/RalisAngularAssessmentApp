@@ -306,5 +306,15 @@ angular
 	}
       }
     })
+    .state('search.categories', {
+      url: '/categories-search/:searchTerm',
+      templateUrl: 'views/entities.html',
+      controller: 'MainCtrl as main',
+      resolve: {
+	entities: function (MainService, $stateParams) {
+	  return MainService.getByCats($stateParams.searchTerm).then(function (resp) { return resp.data});
+	}
+      }
+    })
     $urlRouterProvider.otherwise('home')
   }])
