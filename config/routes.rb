@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/entities-search/:entity', to: 'entities#search'
   resources :sections
   resources :categories, only: [:show, :index, :create, :update, :destroy]
+  get '/categories-search/:search_terms', to: 'categories#search'
   resources :general_links, only: [:show, :create, :update]
   resources :general_notes, only: [:show, :create, :update]
   resources :links, only: [:show, :create, :update]

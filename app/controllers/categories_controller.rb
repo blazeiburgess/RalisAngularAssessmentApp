@@ -10,6 +10,14 @@ class CategoriesController < ApplicationController
     render json: category
   end
 
+  def search
+    entities = []
+    params[:search_terms].split(/-/).each do |search_term|
+      entities += Category.all.select {|cat| cat.name.downcase.match(/#{search_term.downcase}/) }.map(&:entities).flatten.uniq.sort_by {|ent| ent.name.downcase }
+    end
+    render json: entities
+  end
+
   def create
     category = Category.new(category_params)
     if category.save
