@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :general_links, only: [:show, :create, :update]
   resources :general_notes, only: [:show, :create, :update]
   resources :links, only: [:show, :create, :update]
+  get '/links-search/:search_terms', to: 'links#search'
   resources :notes, only: [:show, :create, :update]
   get '/recent-notes', to: 'notes#last50'
   get '/notes-search/:search_terms', to: 'notes#search'

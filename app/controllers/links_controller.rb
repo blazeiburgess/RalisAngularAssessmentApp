@@ -4,6 +4,15 @@ class LinksController < ApplicationController
     render json: link, status: 200
   end
 
+  def search
+    links = []
+    params[:search_terms].split(/-/).each do |search_term|
+      links += Link.all.select {|nt| nt.title.downcase.match(/#{search_term.downcase}/) || nt.description.downcase.match(/#{search_term.downcase}/) || nt.href.downcase.match(/#{search_term.downcase}/) rescue false}
+      links += GeneralLink.all.select {|nt| nt.title.downcase.match(/#{search_term.downcase}/) || nt.description.downcase.match(/#{search_term.downcase}/) || nt.href.downcase.match(/#{search_term.downcase}/) rescue false}
+    end
+    render json: links.sort_by {|l| l.title.downcase}
+  end
+
   def create
     link = Link.new(link_params)
     if link.save

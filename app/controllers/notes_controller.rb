@@ -13,8 +13,9 @@ class NotesController < ApplicationController
     notes = []
     params[:search_terms].split(/-/).each do |search_term|
       notes += Note.all.select {|nt| nt.title.downcase.match(/#{search_term.downcase}/) || nt.body.downcase.match(/#{search_term.downcase}/)  rescue false}
+      notes += GeneralNote.all.select {|nt| nt.title.downcase.match(/#{search_term.downcase}/) || nt.body.downcase.match(/#{search_term.downcase}/)  rescue false}
     end
-    render json: notes
+    render json: notes.sort_by {|n| n.title.downcase}
   end
 
   def create
