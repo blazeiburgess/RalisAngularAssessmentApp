@@ -3,6 +3,10 @@ function CategoryService($http) {
     return $http.get('/categories');
   }
 
+  this.getCategoryNames = function () {
+    return $http.get('/categories-names');
+  }
+
   this.getCategory = function (id) {
     return $http.get('/categories/' + id);
   }

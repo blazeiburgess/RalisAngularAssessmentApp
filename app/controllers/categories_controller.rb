@@ -5,6 +5,11 @@ class CategoriesController < ApplicationController
     # render json: categories, each_serializer: SimpleCategorySerializer
   end
 
+  def names
+    categories = Category.all.sort_by(&:name)
+    render json: categories, each_serializer: SimpleCategorySerializer
+  end
+
   def show
     category = Category.find(params[:id])
     render json: category

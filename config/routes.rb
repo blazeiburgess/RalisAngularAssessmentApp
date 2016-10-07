@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :sections
   resources :categories, only: [:show, :index, :create, :update, :destroy]
   get '/categories-search/:search_terms', to: 'categories#search'
+  get '/categories-names', to: 'categories#names'
   resources :general_links, only: [:show, :create, :update]
   resources :general_notes, only: [:show, :create, :update]
   resources :links, only: [:show, :create, :update]

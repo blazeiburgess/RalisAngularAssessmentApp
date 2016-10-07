@@ -104,7 +104,7 @@ angular
       controller: 'CategoryCtrl as ctrl',
       resolve: {
 	categories: function (CategoryService) {
-	  return CategoryService.getCategories().then(function (resp) {return resp.data});
+	  return CategoryService.getCategoryNames().then(function (resp) {return resp.data});
 	}
       }
     })
